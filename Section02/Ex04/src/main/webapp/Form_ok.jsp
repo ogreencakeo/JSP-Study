@@ -11,11 +11,15 @@
 	<%
 		// 전송된 폼 값들 받기
 		String animal = request.getParameter("animal");
-		String fruit = request.getParameter("fruit");
+		String[] fruits = request.getParameterValues("fruit");
 		
 		// 출력
-		out.println(animal);
-		out.println(fruit);
+		out.println(animal + "<br>");
+		
+		// 항상된 for 반복문으로 출력
+		for(String s : fruits){
+			out.println(s + ", ");
+		}
 	%>
 	
 </body>
