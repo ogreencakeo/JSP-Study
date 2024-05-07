@@ -10,7 +10,7 @@
 	<h1>Sample Form</h1>
 	<hr>
 	<%-- 폼 데이터가 제출될 때 처리할 JSP 파일의 경로를 지정합니다. --%>
-	<form name="myForm" action="./sampleForm_ok.jsp" method ="POST">
+	<form name="myForm" action="./sampleForm_ok.jsp?schoolName=한국대학교" method ="POST">
 		<ul>
 			<li>번호(정수) : <input type="text" name="num"></li>
 			<li>이름(문자) : <input type="text" name="name"></li>
@@ -18,5 +18,6 @@
 		</ul>
 		<input type="submit" value="전송">
 	</form>
+	<hr>
 </body>
 </html>
