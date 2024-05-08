@@ -14,7 +14,7 @@
 </head>
 <body>
 	<h1>Member Form</h1>
-	<form>
+	<form action="./Form_Tag_All_ok.jsp" method="POST" autocomplete="off">
 		<hr>
 		<ul>
 			<li>
