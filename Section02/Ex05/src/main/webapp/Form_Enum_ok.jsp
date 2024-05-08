@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.Enumeration" %>
+<% request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,23 @@
 		Enumeration<String> enums = request.getParameterNames();
 		// <String> 안써주면 노랑 밑줄 출력 (경고)
 		// request.getParameterValues(String name); -> 매갯값이 필요
-		out.println(enums);
+		// out.println(enums); // 객체 주소를 가리킴 : java.util.Collections...@...
+		
+		// enums 변수가 값을 가지고 있다면 -> true
+		// hasMoreElements() 메서드 : 요소가 더 남아있는지 확인해서,
+		// 읽어 올 요소가 더 있으면 true, 없으면 false를 반환
+		// nextElement() 사용 시 주의 : 이 메서드를 호출하기 전에 먼저 hasMoreElements() 를 
+		// 호출해서 요소가 남아있는지를 꼭 체크
+		while(enums.hasMoreElements()){
+			String name = (String) enums.nextElement();
+			// out.println(name + "<br>");
+			
+			// iphone만 검색 (추출)
+			if(name.startsWith("iphone")){
+				String value = request.getParameter(name);
+				out.println(value + "<br>");
+			}
+		}
 	%>
 </body>
 </html>
