@@ -5,6 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Ex07</title>
+<style>
+	ul>li{
+		line-height: 1.5;
+		list-style: none;
+	}
+	.input1{
+		width : 300px;
+		height: 40px;
+		background-color: #f0f0f0;
+		border : 1px solid #666;
+		margin-bottom: 5px;
+	}
+</style>
 </head>
 <body>
 	<!-- 
@@ -50,6 +63,18 @@
 			- 에러가 났으면 그 단계에서 무조건 체크
 			- 무시하고 에러 단계를 넘어가면 뒤에서 더 난리날 수 있음
 	-->
-	 
+	 <h2>Member Join</h2>
+	 <form action="./member_join_ok.jsp" method="POST">
+	 	<hr>
+	 	<ul>
+	 		<li><input class="input1" type="text" name="id" placeholder="아이디 입력" required></li>
+	 		<li><input class="input1" type="password" name="pw" placeholder="비밀번호 입력" required></li>
+	 		<li><input class="input1" type="text" name="name" placeholder="이름 입력" required></li>
+	 		<li><input class="input1" type="text" name="email" placeholder="이메일 입력" required></li>
+	 		<li><input class="input1" type="text" name="phone" placeholder="전화번호 입력"></li>
+	 	</ul>
+	 	<hr>
+	 	<input class="input2" type="submit" value="전송">
+	 </form>
 </body>
 </html>
