@@ -26,6 +26,29 @@
 			- mysql-connector-j-8.2.0.jar
 			- https://dev.mysql.com/downloads/connector/j/?os=26 -> zip 파일로 다운
 			- 압축 풀면 jar 파일만 복사해서 lib 폴더에 위치 (새로고침 클릭)
+		
+		4. import가 필요한 것들
+			- java.sql.Connection
+			- java.sql.DriverManager
+			- java.sql.PrepareStatement
+			- java.sql.SQLException
+			- 보통은 자동 임포트 되기 때문에 자동 완성 기능을 사용하면 된다. 그래도 이 정도는 기억하면 좋다.
+			- 단축키 : Ctrl + Space
+			- 최소한 이거하도 기억하자 : java.sql.*
+			
+		5. tbl_member 테이블 필드 정보
+			- id, pw, name, email, phone
+			- 처음에는 테스트를 위해서 간단하게 작성해서 입력, 출력
+		
+		6. DB 연동 4단계 (냉장고 사용 4단계)
+			- 1단계 : 냉장고 문을 연다. (Open -> Connection)
+			- 2단계 : 마트에서 사온 물건들을 넣기 위해서 준비한다. (Prepare)
+			- 3단계 : 넣는다. (Execute)
+			- 4단계 : 냉장고 문을 닫는다. (Close)
+		
+		7. 전체적으로 데이터베이스 연동 시 에러가 나는지 체크하면서 작업을 단계별로 수행 
+			- 에러가 났으면 그 단계에서 무조건 체크
+			- 무시하고 에러 단계를 넘어가면 뒤에서 더 난리날 수 있음
 	-->
 	 
 </body>
