@@ -60,10 +60,18 @@
 			pstmt.setString(3, name);
 			pstmt.setString(4, email);
 			pstmt.setString(5, phone);
+			// 최종 완성된 쿼리문이 출력 (실행한 것은 아니고, 실행 전 준비한 쿼리문 화면단에 출력)
+			out.println(pstmt);  
+			
+			// DB 연동 3단계
+			// DB 입력을 위해 준비한 쿼리문 실행 -> execute
+			pstmt.execute();
+			
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
 			// DB 연동 4단계
+			if(pstmt != null) try{ pstmt.close(); } catch(SQLException ex){}
 			if(DbConn != null){
 				try{ DbConn.close(); }
 				catch(SQLException ex){}
