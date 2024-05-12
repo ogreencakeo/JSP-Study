@@ -43,7 +43,7 @@
 	<hr>
 	<%
 		// DB 정보
-		String dbDriver = "com.mysql.cj.jdbc/Driver";
+		String dbDriver = "com.mysql.cj.jdbc.Driver";
 		String dbUrl = "jdbc:mysql://localhost:3306/mydb2";
 		String dbId = "root";
 		String dbPW = "1234";
@@ -71,14 +71,36 @@
 			
 			// DB 연동 2단계 (Prepare + Execute)
 			stmt = conn.createStatement();
-			stmt.executeQuery("select * from tbl_member"); // 쿼리문 실행 시 ResultSet 값을 반환
+			rs = stmt.executeQuery("select * from tbl_member"); // 쿼리문 실행 시 ResultSet 값을 반환
 			
 			// 브라우저 화면단에 출력
+			// true : 다음 레코드가 있는지 체크 -> 있으면 true, 없으면 false
+			// out.println(rs.next() + "<br>");  // true
+			// out.println(rs.next() + "<br>");  // true
+			// out.println(rs.next() + "<br>");  // true
+			// out.println(rs.next() + "<br>");  // true
+			// out.println(rs.next() + "<br>");  // true
+			// out.println(rs.next() + "<br>");  // false
 			
-		}catch(SQLException ex){
-			ex.printStackTrace();
-		}finally{
+			while(rs.next()){
+				id = rs.getString("id");
+				pw = rs.getString("pw");
+				name = rs.getString("name");
+				email = rs.getString("email");
+				phone = rs.getString("phone");
+				%>
+					<p><%=counter+1 %>. <%=id %>, <%=pw %>, <%=name %>, <%=email %>, <%=phone %> </p>
+				<%
+				counter++;
+			}
+			
+		}catch(SQLException ex){ out.println(ex);}
+		catch(Exception e){ e.printStackTrace();}
+		finally{
 			// DB 연동 4단계 (Close)
+			if(rs != null) try{ rs.close(); } catch(SQLException ex){}
+			if(stmt != null) try{ stmt.close(); } catch(SQLException ex){}
+			if(conn != null) try{ conn.close(); } catch(SQLException ex){}
 		}
 		
 	%>
