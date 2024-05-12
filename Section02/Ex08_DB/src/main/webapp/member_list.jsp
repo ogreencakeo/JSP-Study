@@ -53,13 +53,18 @@
 		Statement stmt = null; // statement : 성명서 진술서, 문장
 		ResultSet rs = null; // 쿼리 결과를 받기 위해서 필요
 		
+		// 하나의 레코드에 들어있는 필드 값들을 저장하는 변수
 		String id = "",
 				pw = "",
 				name = "",
 				email = "",
 				phone ="";
 		
+		// Total Records
 		int counter = 0;
+		
+		// DB 연동 4단계
+		
 		
 	%>
 </body>
