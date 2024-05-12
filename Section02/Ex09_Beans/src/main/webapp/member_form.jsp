@@ -22,8 +22,8 @@
 	<form action="./member_form_ok.jsp" method="POST" autocomplete="off">
 		<hr>
 		<ul>
-			<li><input class="input1" type="text" name="memebrID" placeholder="아이디 입력" required></li>
-			<li><input class="input2" type="text" name="memebrPW" placeholder="비밀번호 입력" required></li>
+			<li><input class="input1" type="text" name="memberID" placeholder="아이디 입력" required></li>
+			<li><input class="input2" type="text" name="memberPW" placeholder="비밀번호 입력" required></li>
 		</ul>
 		<hr>
 		<!-- Submit -->
