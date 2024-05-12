@@ -64,7 +64,22 @@
 		int counter = 0;
 		
 		// DB 연동 4단계
-		
+		try{
+			// DB 연동 1단계 (Connection)
+			Class.forName(dbDriver);
+			conn = DriverManager.getConnection(dbUrl, dbId, dbPW);
+			
+			// DB 연동 2단계 (Prepare + Execute)
+			stmt = conn.createStatement();
+			stmt.executeQuery("select * from tbl_member"); // 쿼리문 실행 시 ResultSet 값을 반환
+			
+			// 브라우저 화면단에 출력
+			
+		}catch(SQLException ex){
+			ex.printStackTrace();
+		}finally{
+			// DB 연동 4단계 (Close)
+		}
 		
 	%>
 </body>
