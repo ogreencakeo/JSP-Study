@@ -19,7 +19,7 @@
 </head>
 <body>
 	<h2>Member Login</h2>
-	<form action="./member_form_ok.jsp" method="POST" autocomplete="off">
+	<form action="./member_form_ok2.jsp" method="POST" autocomplete="off">
 		<hr>
 		<ul>
 			<li><input class="input1" type="text" name="memberID" placeholder="아이디 입력" required></li>
