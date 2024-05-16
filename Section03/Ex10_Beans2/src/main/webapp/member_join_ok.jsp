@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 
-<jsp:useBean  id="member" class="member.test.com.Member" />
+<jsp:useBean  id="member" class="member.test.com.MemberVO" />
 <jsp:setProperty name="member" property="*" />
 
 <%
@@ -17,7 +17,7 @@
 	// 이때, MemberDB를 유즈빈으로 불러와서 사용
 %>
 
-<jsp:useBean id="db" class="member.test.com.MemberDB" scope="application" />
+<jsp:useBean id="db" class="member.test.com.MemberDAO" scope="application" />
 <%
 	db.add(member); // 전달된 한 명의 회원 정보를 DB에 입력하는 순간
 %>
