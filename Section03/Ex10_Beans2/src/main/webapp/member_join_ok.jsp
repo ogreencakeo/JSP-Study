@@ -17,6 +17,10 @@
 	// 이때, MemberDB를 유즈빈으로 불러와서 사용
 %>
 
+<jsp:useBean id="db" class="member.test.com.MemberDB" scope="application" />
+<%
+	db.add(member); // 전달된 한 명의 회원 정보를 DB에 입력하는 순간
+%>
 <!DOCTYPE html>
 <html>
 <head>
