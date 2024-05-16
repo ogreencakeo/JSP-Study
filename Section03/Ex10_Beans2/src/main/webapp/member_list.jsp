@@ -1,8 +1,8 @@
-<%@page import="member.test.com.Member"%>
+<%@page import="member.test.com.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<jsp:useBean id="db" class="member.test.com.MemberDB" scope="application" />
+<jsp:useBean id="db" class="member.test.com.MemberDAO" scope="application" />
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +21,7 @@
 	<ul>
 		<%
 			out.println("<p>현재 사이즈 : " + db.getSize() + "</p>");
-			for(Member m :  db.getList()){
+			for(MemberVO m :  db.getList()){
 				out.println("<li>" + m.getId() + ", " + m.getPw() 
 						+ ", " + m.getName() + ", " + m.getEmail() 
 						+ ", " +m.getPhone() + "</li>");
