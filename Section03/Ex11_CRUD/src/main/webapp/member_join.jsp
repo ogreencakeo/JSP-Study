@@ -1,3 +1,4 @@
+<%@page import="member.site.com.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -5,6 +6,8 @@
 	String id = request.getParameter("id");
 	out.println((id != null) ? id : "null");
 %>
+
+<jsp:useBean id="db" class="member.site.com.MemberDAO" scope="application" />
 
 <!DOCTYPE html>
 <html>
@@ -33,7 +36,16 @@
 			String phone = null;
 			
 			// 수정할 회원정보를 검색 (서치)
-			
+			for(MemberVO m : db.getList()){
+				if(m.getId().equals(id)){
+					// 회원 정보를 셋팅
+					pw = m.getPw();
+					name = m.getName();
+					email = m.getEmail();
+					phone = m.getPhone();
+					break;
+				}
+			}
 			
 			%>
 			<h2>Member Join</h2>
