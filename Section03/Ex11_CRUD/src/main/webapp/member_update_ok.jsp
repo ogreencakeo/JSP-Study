@@ -18,7 +18,10 @@
 %>
 <jsp:useBean id="db" class="member.site.com.MemberDAO" scope="application" />
 <%
-	// db.update(member); // DB에 수정하는 순간
+	// 수정
+	// out.println("수정한 회원의 수는 ?" + db.update(member));
+	int result = db.update(member);
+	out.println("수정한 회원의 수는 ?" + result);
 %>
 <!DOCTYPE html>
 <html>
