@@ -25,7 +25,20 @@ public class MemberDAO {
 	
 	// 수정 : update() -> set() 메서드 사용
 	public int update(MemberVO m) {
+		// [1] contains() 
+		// 일단, -1이 나오도록 하자, 찾는 멤버 객체가 없으면 -1 출력되게끔
+		// 그런데, 사용자 정의 객체인 경우 해당 클래스에 equals()메서드 재정의가 필요 !
+		// 왜? -> 같음을 비교하는 기준이 뭔지를 정해줘야 하기 때문
+//		if(!memberList.contains(m)) return -1;
+//		else return 1;
+		
+		// [2] indexOf()
 		int idx = memberList.indexOf(m);
+		if(idx == -1) return -1;
+		
+		// 업데이트
+		memberList.set(idx, m);
+		
 		return idx;
 	}
 }
