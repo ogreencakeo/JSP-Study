@@ -47,5 +47,11 @@ public class MemberVO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
+	// toString() 메서드 재정의
+	@Override
+	public String toString() {
+		return "MemberVO [id=" + id + ", pw=" + pw + ", name=" + name + ", email=" + email + ", phone=" + phone + "]";
+	}
 	
 }
