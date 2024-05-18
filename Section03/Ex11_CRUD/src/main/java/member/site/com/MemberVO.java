@@ -74,9 +74,10 @@ public class MemberVO {
 		// 예를들어, pw 필드까지도 비교해야 한다면 && 사용
 		// return this.id.equals(other.id) && this.pw.equals(other.pw)
 		if(obj instanceof MemberVO) {
-			MemberVO other = (MemberVO) obj;
-			return this.id.equals(other.id) &&
-					this.pw.equals(other.pw);
+			// MemberVO other = (MemberVO) obj;
+			// return this.id.equals(other.id) && this.pw.equals(other.pw);
+			
+			return this.id.equals(((MemberVO)obj).id);
 		}
 		return false;
 	}
