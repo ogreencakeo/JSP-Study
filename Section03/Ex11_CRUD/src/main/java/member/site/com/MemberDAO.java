@@ -22,4 +22,10 @@ public class MemberDAO {
 	public int getSize() {
 		return memberList.size();
 	}
+	
+	// 수정 : update() -> set() 메서드 사용
+	public int update(MemberVO m) {
+		int idx = memberList.indexOf(m);
+		return idx;
+	}
 }
