@@ -3,6 +3,43 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 
 <%
+	// 넘어온 action (또는 command) 값 받아서 분기 처리
+	String action = request.getParameter("action");
+
+// 액션이 null이면
+	if(action == null){
+		out.println("action 값을 입력해주세요");
+		return;
+	}
+
+	// 입력 요청 : insert(C)
+	if(action.equals("insert")){
+		out.println("입력 요청");
+		%> <jsp:include page = './template/member_tbl_insert.jsp'/> <%
+	}
+	
+	// 목록 요청 : list(R)
+	else if(action.equals("list")){
+		out.println("목록 요청");
+	}
+	
+	// 수정 요청 : update(U)
+	else if(action.equals("update")){
+		out.println("수정 요청");
+	}
+	
+	// 삭제 요청 : delete(D)
+	else if(action.equals("delete")){
+		out.println("삭제 요청");
+	}
+	
+	// 에러
+	else{
+		out.println("요청 파라미터 값을 다시 확인해주세요!");
+	}
+%>
+
+<%
 	/*
 		★ 컨트롤러 만들기
 		- 어려운 개념은 아니고 쉬운 개념이나 경험이 없는 초보자 입장에서는 무슨 말인지 전혀 모를 수 있음
@@ -21,5 +58,22 @@
 		- 그러나, 개인이 진행하는 프로젝트나 소규모 프로젝트인 경우 -> 내가 규칙을 생성
 		- 기존에 컨트롤러 페이지를 만들지 않고 진행한 CRUD 프로젝트를 -> member_control.jsp 만들어서 각자 진행
 		- 템플릿과 액션을 어떻게 구성해서 사이트를 만들지는 정말 다양한 방법이 존재
+	
+		주소창 : http://localhost/Ex12_CRUD/member_control.jsp?action=insert
+		
+		템플릿 : member_tpl_insert.jsp
+				member_tbl_list.jsp
+		
+		액션 : member_insert_ok.jsp	
 	*/
 %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>member control</title>
+</head>
+<body>
+	
+</body>
+</html>
