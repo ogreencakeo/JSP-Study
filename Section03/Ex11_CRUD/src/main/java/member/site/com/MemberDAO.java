@@ -44,12 +44,19 @@ public class MemberDAO {
 	
 	// 삭제 : delete() -> remove() 메서드 사용
 	public void delelte(String id) {
-		
+		// 1. memberList (batman)
+		for(MemberVO m : memberList) {
+			if(m.getId().equals(id)) {
+				// 회원 정보 삭제
+				memberList.remove(m);
+				break;
+			}
+		}
 	}
 	
 	// 전체 삭제 : deleteAll() -> clear() 메서드 사용
-	public void deleteAll(String id) {
-		
+	public void deleteAll() {
+		memberList.clear();
 	}
 	
 }
