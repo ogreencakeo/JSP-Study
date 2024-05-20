@@ -41,4 +41,15 @@ public class MemberDAO {
 		
 		return idx;
 	}
+	
+	// 삭제 : delete() -> remove() 메서드 사용
+	public void delelte(String id) {
+		
+	}
+	
+	// 전체 삭제 : deleteAll() -> clear() 메서드 사용
+	public void deleteAll(String id) {
+		
+	}
+	
 }
