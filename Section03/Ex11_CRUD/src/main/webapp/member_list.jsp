@@ -27,11 +27,13 @@
 						+ ", " +m.getPhone());
 				// out.println("[<a href = 'member_join.jsp'>Update]");
 				out.println("<button onclick='location.href=\"member_join.jsp?id=" + m.getId() +"\";'>Update</button>");
+				out.println("<button onclick='location.href=\"member_delete_ok.jsp?id=" + m.getId() +"\";'>Delete</button>");
 				out.println("</li>");
 			}
 		%>
 	</ul>
 	<hr>
-	<button onclick="location.href='member_join.jsp'">회원 입력</button>
+	<button onclick="location.href='member_join.jsp';">회원 입력</button>
+	<button onclick="location.href='member_deleteAll_ok.jsp';">전체 삭제</button>
 </body>
 </html>
