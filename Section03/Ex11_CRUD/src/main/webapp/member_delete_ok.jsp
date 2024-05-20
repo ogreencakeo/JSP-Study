@@ -12,7 +12,7 @@
 	db.delelte(id);
 
 	// 페이지 이동 -> response.sendRedirect()
-	response.sendRedirect("http://localhost/EX11_CRUD/member_list.jsp");
+	response.sendRedirect( "http://localhost/Ex11_CRUD/member_list.jsp");
 %>
 <!DOCTYPE html>
 <html>
