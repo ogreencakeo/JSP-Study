@@ -28,6 +28,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	window.onload = function(){
+		setTimeout(() => {
+			location.href = "member_list.jsp";
+		}, 3000);
+	}
+</script>
 </head>
 <body>
 	
