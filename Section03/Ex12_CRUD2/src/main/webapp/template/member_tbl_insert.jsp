@@ -78,7 +78,7 @@
 				<hr>
 				<!-- Submit -->
 				<input type="submit" value="입력">
-				<button onclick="location.href='member_control.jsp?action=list';">회원 리스트</button>
+				<button onclick="location.href='<%= application.getAttribute("PATH1") %>/member_control.jsp?action=list';">회원 리스트</button>
 			</form>
 			<%
 		}
