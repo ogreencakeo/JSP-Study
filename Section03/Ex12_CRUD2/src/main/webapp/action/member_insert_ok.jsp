@@ -38,6 +38,6 @@
 		<li>전화번호 :	<%=member.getPhone() %> </li>
 	</ul>
 	<hr>
-	<button onclick="location.href='/Ex12_CRUD2/member_control.jsp?action=list';">회원 리스트 페이지로 이동하기</button>
+	<button onclick="location.href='<%= application.getAttribute("PATH1") %>member_control.jsp?action=list';">회원 리스트 페이지로 이동하기</button>
 </body>
 </html>
