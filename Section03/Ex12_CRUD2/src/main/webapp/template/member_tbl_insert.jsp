@@ -49,7 +49,7 @@
 			
 			%>
 			<h2>Member Join</h2>
-			<form action="./member_update_ok.jsp" method="POST" autocomplete="off">
+			<form action="./action/member_update_ok.jsp" method="POST" autocomplete="off">
 				<hr>
 				<ul>
 					<li><input class="input1" type="text" name="id" value=<%=id %> readonly></li>
@@ -78,7 +78,7 @@
 				<hr>
 				<!-- Submit -->
 				<input type="submit" value="입력">
-				<button onclick="location.href='member_list.jsp?action.list';">회원 리스트</button>
+				<button onclick="location.href='member_control.jsp?action=list';">회원 리스트</button>
 			</form>
 			<%
 		}
