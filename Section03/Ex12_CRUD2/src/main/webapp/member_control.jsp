@@ -27,6 +27,7 @@
 	// 수정 요청 : update(U)
 	else if(action.equals("update")){
 		out.println("수정 요청");
+		%> <jsp:include page = './template/member_tbl_insert.jsp'/> <%
 	}
 	
 	// 삭제 요청 : delete(D)
