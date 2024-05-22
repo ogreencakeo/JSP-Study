@@ -3,6 +3,12 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 
 <%
+	// 공통변수 PATH1 출력해보기
+	String PATH1 = (String) application.getAttribute("PATH1");
+	out.println(PATH1); // null
+%>
+
+<%
 	// 넘어온 action (또는 command) 값 받아서 분기 처리
 	String action = request.getParameter("action");
 
@@ -69,13 +75,3 @@
 		액션 : member_insert_ok.jsp	
 	*/
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>member control</title>
-</head>
-<body>
-	
-</body>
-</html>
