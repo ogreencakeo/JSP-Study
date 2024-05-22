@@ -1,11 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ include file="./common.jsp" %>
 <% request.setCharacterEncoding("UTF-8"); %>
 
 <%
 	// 공통변수 PATH1 출력해보기
-	String PATH1 = (String) application.getAttribute("PATH1");
-	out.println(PATH1); // null
+	String PATH1 = (String) application.getAttribute("PATH1");	
+
+	// application scope에 "PATH1"이 존재하지 않으면
+	if(PATH1 != null) out.println("PATH1 value : " + PATH1);
+	/* else{
+		application.setAttribute("PATH1", "/Ex12_CRUD2");
+		PATH1 = (String) application.getAttribute("PATH1");	
+	}  */
 %>
 
 <%
