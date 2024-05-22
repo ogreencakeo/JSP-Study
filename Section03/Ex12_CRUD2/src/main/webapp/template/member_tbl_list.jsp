@@ -34,7 +34,7 @@
 						+ ", " + m.getName() + ", " + m.getEmail() 
 						+ ", " +m.getPhone());
 				// out.println("[<a href = 'member_join.jsp'>Update]");
-				out.println("<button onclick='location.href=\"member_join.jsp?id=" + m.getId() +"\";'>Update</button>");
+				out.println("<button onclick='location.href=\"./member_control.jsp?action=update&id=" + m.getId() +"\";'>Update</button>");
 				out.println("<button onclick='location.href=\"./action/member_delete_ok.jsp?id=" + m.getId() +"\";'>Delete</button>");
 				out.println("</li>");
 			}
