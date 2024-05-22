@@ -14,13 +14,14 @@
 
 	// 입력 요청 : insert(C)
 	if(action.equals("insert")){
-		out.println("입력 요청");
+		// out.println("입력 요청");
 		%> <jsp:include page = './template/member_tbl_insert.jsp'/> <%
 	}
 	
 	// 목록 요청 : list(R)
 	else if(action.equals("list")){
-		out.println("목록 요청");
+		// out.println("목록 요청");
+		%> <jsp:include page = './template/member_tbl_list.jsp'/> <%
 	}
 	
 	// 수정 요청 : update(U)
