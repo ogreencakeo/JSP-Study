@@ -66,6 +66,7 @@
 		}else{
 			%>
 			<h2>Member Insert</h2>
+			<img alt="파인애플" src="<%=application.getAttribute("PATH1") %><%=application.getAttribute("ImgSrc") %>/pineapple.jpg" width="380" height="200" />
 			<form action="./action/member_insert_ok.jsp" method="POST" autocomplete="off">
 				<hr>
 				<ul>
