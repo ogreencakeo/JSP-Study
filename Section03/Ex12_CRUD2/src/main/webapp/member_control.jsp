@@ -20,39 +20,25 @@
 	// 넘어온 action (또는 command) 값 받아서 분기 처리
 	String action = request.getParameter("action");
 
-// 액션이 null이면
+	// 액션이 null이면
 	if(action == null){
 		out.println("action 값을 입력해주세요");
 		return;
 	}
+	
+	// 분기처리 (switch ... case)
+	switch(action){
+		case "insert" :
+		case "update" :
+			%><jsp:include page="./template/member_tbl_insert.jsp" /> <%
+			break;
+		case "list" :
+			%><jsp:include page="./template/member_tbl_list.jsp" /> <%
+			break;
+		default:
+			out.println("요청 파라미터 값을 다시 확인해 주세요.");
+	}
 
-	// 입력 요청 : insert(C)
-	if(action.equals("insert")){
-		// out.println("입력 요청");
-		%> <jsp:include page = './template/member_tbl_insert.jsp'/> <%
-	}
-	
-	// 목록 요청 : list(R)
-	else if(action.equals("list")){
-		// out.println("목록 요청");
-		%> <jsp:include page = './template/member_tbl_list.jsp'/> <%
-	}
-	
-	// 수정 요청 : update(U)
-	else if(action.equals("update")){
-		out.println("수정 요청");
-		%> <jsp:include page = './template/member_tbl_insert.jsp'/> <%
-	}
-	
-	// 삭제 요청 : delete(D)
-	else if(action.equals("delete")){
-		out.println("삭제 요청");
-	}
-	
-	// 에러
-	else{
-		out.println("요청 파라미터 값을 다시 확인해주세요!");
-	}
 %>
 
 <%
@@ -82,4 +68,35 @@
 		
 		액션 : member_insert_ok.jsp	
 	*/
+	
 %>
+
+
+<%-- 	// 입력 요청 : insert(C)
+	if(action.equals("insert")){
+		// out.println("입력 요청");
+		%> <jsp:include page = './template/member_tbl_insert.jsp'/> <%
+	}
+	
+	// 목록 요청 : list(R)
+	else if(action.equals("list")){
+		// out.println("목록 요청");
+		%> <jsp:include page = './template/member_tbl_list.jsp'/> <%
+	}
+	
+	// 수정 요청 : update(U)
+	else if(action.equals("update")){
+		out.println("수정 요청");
+		%> <jsp:include page = './template/member_tbl_insert.jsp'/> <%
+	}
+	
+	// 삭제 요청 : delete(D)
+	else if(action.equals("delete")){
+		out.println("삭제 요청");
+	}
+	
+	// 에러
+	else{
+		out.println("요청 파라미터 값을 다시 확인해주세요!");
+	}
+ --%>
