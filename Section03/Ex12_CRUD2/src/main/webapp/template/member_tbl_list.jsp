@@ -41,7 +41,7 @@
 		%>
 	</ul>
 	<hr>
-	<button onclick="location.href='member_control.jsp?action=insert';">회원 입력</button>
+	<button onclick="location.href='<%= application.getAttribute("PATH1") %>/member_control.jsp?action=insert';">회원 입력</button>
 	<button onclick="deleteAllonClick();">전체 삭제</button>
 </body>
 </html>
