@@ -2,4 +2,7 @@
 <% 
 	// 공통 변수 정의
 	application.setAttribute("PATH1", "/Ex12_CRUD2");
+	
+	// 이미지 경로
+	application.setAttribute("ImgSrc", "/img");
 %>
