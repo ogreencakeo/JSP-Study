@@ -1,6 +1,7 @@
 package member.site.com;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -17,11 +18,24 @@ public class MemberDAO {
 	String dbPW = "1234";
 	
 	// 연결 : connect()
-	
+	public void connect() {
+		try {
+			Class.forName(dbDriver);
+			conn = DriverManager.getConnection(dbUrl, dbID, dbPW);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	// 연결 해제 : disconnect()
 	
 	// 입력 : insertDB()
+	public boolean insertDB(MemberVO m) {
+		// DB 연결
+		connect();
+		
+		return true;
+	}
 	
 	// 출력 : listDB()
 	
