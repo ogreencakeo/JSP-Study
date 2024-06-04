@@ -4,12 +4,15 @@
 
 <jsp:useBean id="member" class="member.site.com.MemberVO" />
 <jsp:setProperty name="member" property="*" />
+<%
+	out.println(member);	
+%>
 
 <jsp:useBean id="db" class="member.site.com.MemberDAO" scope="application" />
 <%
 	// 전달된 한 명의 회원 정보를 DB에 입력하는 순간
-	// db.insertDB(member);
-	//out.println("DB 입력 성공은? => " + db.insertDB(member)); // true
+	db.insertDB(member);
+	out.println("DB 입력 성공은? => " + db.insertDB(member)); // true
 %>
 
 <!DOCTYPE html>
