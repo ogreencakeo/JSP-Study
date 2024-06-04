@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class MemberDAO {
 	// Connection 변수 선언
@@ -28,12 +29,25 @@ public class MemberDAO {
 	}
 	
 	// 연결 해제 : disconnect()
+	public void disconnect() {
+		if(pstmt != null) try { pstmt.close(); } catch(SQLException ex) {}
+		if(conn != null) try { conn.close(); } catch(SQLException ex) {}
+	}
 	
 	// 입력 : insertDB()
 	public boolean insertDB(MemberVO m) {
-		// DB 연결
-		connect();
-		
+		try {
+			// DB 연동 1단계 (키워드 -> Connection) : DB 연결
+			connect();
+			
+			// DB 연동 2단계 (키워드 -> Prepare) : SQL 쿼리 준비
+			
+			// DB 연동 3단계 (키워드 -> Execute) : SQL 쿼리 실행
+		}catch(SQLException ex) {
+			ex.printStackTrace();
+		}finally {
+			// DB 연동 4단계 (키워드 -> close) : 자원 반납
+		}
 		return true;
 	}
 	
