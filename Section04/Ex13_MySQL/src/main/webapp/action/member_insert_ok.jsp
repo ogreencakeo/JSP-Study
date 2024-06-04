@@ -12,7 +12,7 @@
 <%
 	// 전달된 한 명의 회원 정보를 DB에 입력하는 순간
 	boolean res = db.insertDB(member);
-	out.println("DB 입력 성공은? => " + res); // true
+	out.println("DB 입력 성공은? => " + db.insertDB(member)); // true
 %>
 
 <!DOCTYPE html>
