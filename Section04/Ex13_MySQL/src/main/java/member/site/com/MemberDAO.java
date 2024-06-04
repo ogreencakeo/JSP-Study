@@ -41,12 +41,30 @@ public class MemberDAO {
 			connect();
 			
 			// DB 연동 2단계 (키워드 -> Prepare) : SQL 쿼리 준비
+			// SQL 쿼리를 작성하고 해당 쿼리를 실행하기 위한 그 전 단계로 DB에 입력을 준비하는 단계
+			// SQL 쿼리문 준비 및 실행을 위한 statement 또는 preparedSatement 객체 생성이 필요 -> pstmt = conn.pre..(SQL)
+			String strSQL = "INSERT INTO tbl_member(id, pw, name, email, phone) VALUES(?, ?, ?, ?, ?)";
+			
+			pstmt = conn.prepareStatement(strSQL);
+			pstmt.setString(1, m.getId());
+			pstmt.setString(2, m.getPw());
+			pstmt.setString(3, m.getName());
+			pstmt.setString(4, m.getEmail());
+			pstmt.setString(5, m.getPhone());
+			// 최종 완성된 쿼리문 출력 (실행 전 준비한 쿼리문 콘솔에 출력)
 			
 			// DB 연동 3단계 (키워드 -> Execute) : SQL 쿼리 실행
+			System.out.println(pstmt);
+			
+			// DB 연동 3단계 (키워드 -> Execute) : SQL 쿼리 실행
+			pstmt.executeUpdate();
+			
 		}catch(SQLException ex) {
 			ex.printStackTrace();
+			return false;
 		}finally {
 			// DB 연동 4단계 (키워드 -> close) : 자원 반납
+			disconnect();
 		}
 		return true;
 	}
