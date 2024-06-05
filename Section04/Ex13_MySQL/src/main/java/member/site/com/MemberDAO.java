@@ -35,7 +35,8 @@ public class MemberDAO {
 	}
 	
 	// 입력 : insertDB()
-	public boolean insertDB(MemberVO m) {
+	public int insertDB(MemberVO m) {
+		int res = -1;
 		try {
 			// DB 연동 1단계 (키워드 -> Connection) : DB 연결
 			connect();
@@ -43,9 +44,8 @@ public class MemberDAO {
 			// DB 연동 2단계 (키워드 -> Prepare) : SQL 쿼리 준비
 			// SQL 쿼리를 작성하고 해당 쿼리를 실행하기 위한 그 전 단계로 DB에 입력을 준비하는 단계
 			// SQL 쿼리문 준비 및 실행을 위한 statement 또는 preparedSatement 객체 생성이 필요 -> pstmt = conn.pre..(SQL)
-			String strSQL = "INSERT INTO tbl_member(id, pw, name, email, phone) " +
-					"VALUES" + 
-					"('ㄹㅇcsadㅎ', '홍길동', 'ㄹㅇㅎ', 'ㄴㄹ', 'ㄴㅇㄹ')";
+			String strSQL = "";
+			
 			
 			pstmt = conn.prepareStatement(strSQL);
 			/*
@@ -62,16 +62,17 @@ public class MemberDAO {
 			// System.out.println(pstmt);
 			
 			// DB 연동 3단계 (키워드 -> Execute) : SQL 쿼리 실행
-			pstmt.executeUpdate();
+			res = pstmt.executeUpdate();
 			
 		}catch(SQLException ex) {
 			ex.printStackTrace();
-			return false;
+			// return false;
 		}finally {
 			// DB 연동 4단계 (키워드 -> close) : 자원 반납
 			disconnect();
 		}
-		return true;
+		// return true;
+		return res;
 	}
 	
 	// 출력 : listDB()
