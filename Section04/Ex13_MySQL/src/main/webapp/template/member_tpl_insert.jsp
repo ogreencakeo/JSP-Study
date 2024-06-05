@@ -33,7 +33,7 @@
 			</ul>
 		<hr>
 		<input type="submit" value="입력">
-		<button onclick="location.href='<%= request.getAttribute("ROOTPATH") %>/member_control.jsp?action=list'">리스트 페이지</button>
+		<button onclick="location.href='<%= application.getAttribute("ROOTPATH") %>/member_control.jsp?action=list'">리스트 페이지</button>
 	</form>
 </body>
 </html>
