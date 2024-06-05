@@ -11,7 +11,8 @@
 <jsp:useBean id="db" class="member.site.com.MemberDAO" scope="application" />
 <%
 	// 전달된 한 명의 회원 정보를 DB에 입력하는 순간
-	int res = db.insertDB(member);
+	// int res = db.insertDB(member);
+	boolean res = db.insertDB(member);
 	out.println("DB 입력 성공은? => " + res); // true
 %>
 
