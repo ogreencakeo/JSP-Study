@@ -1,0 +1,10 @@
+수정을 위해서 해줘야 하는 것들!
+
+새롭게 만들어줘야 하는 파일들
+template/member_tpl_update.jsp
+action/member_update_ok.jsp 	<--------> 	  MemberDAO.java : updateDB()
+																public MemberVO getMember(String id)
+기존에 있는 파일들 수정
+MemberDAO.java
+member_control.jsp 
+member_tpl_list.jsp
