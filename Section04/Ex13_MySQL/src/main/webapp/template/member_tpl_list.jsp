@@ -46,7 +46,11 @@
 		<%
 			for(MemberVO m : db.listDB()){
 				%>
-					<li><%=m %></li>
+					<li>
+						<%=m %>
+						&nbsp;
+						<button onclick="location.href='<%= application.getAttribute("ROOTPATH") %>/member_control.jsp?action=update&id=<%=m.getId() %>';">Update</button>
+					</li>
 				<%
 			}
 		%>
