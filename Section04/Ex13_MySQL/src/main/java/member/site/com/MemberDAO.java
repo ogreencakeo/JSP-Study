@@ -77,6 +77,10 @@ public class MemberDAO {
 	
 	// 출력 : listDB()
 	public ArrayList<MemberVO> listDB(){
+		// ArrayList 선언
+		// DB에서 한 명씩 가져온 멤버 데이터를 담는 용도로 사용
+		ArrayList<MemberVO> dataList = new ArrayList<>();
+		
 		try {
 			// DB 연동 1단계 (키워드 -> Connection) : DB 연결
 			connect();
@@ -88,12 +92,31 @@ public class MemberDAO {
 			// DB 연동 3단계 (키워드 -> Execute) : SQL 쿼리 실행
 			rs = pstmt.executeQuery(); // 쿼리문 실행 시 ResultSet 값을 반환
 			
+			// rs.next() 반복 : 한 명의 멤버 객체 셋팅 -> 다음 레코드가 있으면 true, 없으면 false
+			// rs.close() 자원 반납하는거 꼭 기억!
+			while(rs.next()) {
+				// 하나의 레코드에 들어있는 필드 값들을 저장하는 객체 생성
+				MemberVO member = new MemberVO();
+				
+				member.setId(rs.getString(1));
+				member.setPw(rs.getString(2));
+				member.setName(rs.getString(3));
+				member.setEmail(rs.getString(4));
+				member.setPhone(rs.getString(5));
+				
+				// 하나의 멤버 정보가 모두 셋팅되었으면 ArrayList에 추가
+				dataList.add(member);
+			}
+			rs.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			disconnect();
 		}
+		return dataList;
 	}
+	
 	
 	// 수정 : updateDB()
 	
