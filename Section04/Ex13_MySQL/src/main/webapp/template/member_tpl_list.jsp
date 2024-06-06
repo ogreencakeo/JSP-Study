@@ -29,17 +29,25 @@
 	<hr>
 	<ul>
 		<%
-			ArrayList<MemberVO> dataList = db.listDB();
+			// ArrayList<MemberVO> dataList = db.listDB();
 		
 			/* for(int i=0; i<dataList.size(); i++){
 				out.println("<li>" + dataList.get(i) + "</li>");
 			} */
 			
-			for(MemberVO m : dataList){
+			/* for(MemberVO m : dataList){
 				out.println("<li>" + m );
-				out.println("<button>Update</button>");
+				out.println("<button onclick='location.href=\"member_control.jsp?action=update&id=" + m.getId() + "\";'>Update</button>");
 				out.println("<button>Delete</button>");
 				out.println("</li>");
+			} */
+		%>
+		<!-- 반복문을 사용하여 dataList 출력하기 -->
+		<%
+			for(MemberVO m : db.listDB()){
+				%>
+					<li><%=m %></li>
+				<%
 			}
 		%>
 	</ul>
