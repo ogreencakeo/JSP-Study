@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="member.site.com.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -27,7 +28,20 @@
 	<h2>Member List</h2>
 	<hr>
 	<ul>
-		<li>superman(슈퍼맨) : superman@gmail.com, 010-111-111, 1111</li>
+		<%
+			ArrayList<MemberVO> dataList = db.listDB();
+		
+			/* for(int i=0; i<dataList.size(); i++){
+				out.println("<li>" + dataList.get(i) + "</li>");
+			} */
+			
+			for(MemberVO m : dataList){
+				out.println("<li>" + m );
+				out.println("<button>Update</button>");
+				out.println("<button>Delete</button>");
+				out.println("</li>");
+			}
+		%>
 	</ul>
 	<hr>
 	<button onclick="location.href='<%= application.getAttribute("ROOTPATH") %>/member_control.jsp?action=insert';">회원 입력</button>
