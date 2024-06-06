@@ -117,7 +117,6 @@ public class MemberDAO {
 		return dataList;
 	}
 	
-	
 	// 수정 : updateDB()
 	
 	// 삭제 : deleteDB()
