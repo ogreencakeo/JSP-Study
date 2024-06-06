@@ -38,9 +38,10 @@ public class MemberVO {
 		this.phone = phone;
 	}
 	
+	// toString() 메서드 재정의
 	@Override
 	public String toString() {
-		return "MemberVO [id=" + id + ", pw=" + pw + ", name=" + name + ", email=" + email + ", phone=" + phone + "]";
+		return "id = " + id + ", pw = " + pw + ", name = " + name + ", email = " + email + ", phone = " + phone + "";
 	}
 	
 }
