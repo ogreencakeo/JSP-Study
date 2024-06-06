@@ -118,6 +118,20 @@ public class MemberDAO {
 	}
 	
 	// 수정 : updateDB()
+	public boolean updateDB(MemberVO m) {
+		
+		return true;
+	
+	}
+	
+	// 한 명의 회원 정보 반환 : getMember()
+	public MemberVO getMember(String id) {
+		MemberVO member = new MemberVO();
+		
+		// DB에서 전달된 ID에 해당하는 회원 정보를 추출
+		
+		return member;
+	}
 	
 	// 삭제 : deleteDB()
 	
