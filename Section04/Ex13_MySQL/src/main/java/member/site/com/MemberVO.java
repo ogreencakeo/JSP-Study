@@ -41,7 +41,7 @@ public class MemberVO {
 	// toString() 메서드 재정의
 	@Override
 	public String toString() {
-		return "id = " + id + ", pw = " + pw + ", name = " + name + ", email = " + email + ", phone = " + phone + "";
+		return "MemberVO [ id = " + id + ", pw = " + pw + ", name = " + name + ", email = " + email + ", phone = " + phone + " ]";
 	}
 	
 }
