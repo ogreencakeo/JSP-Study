@@ -141,6 +141,7 @@ public class MemberDAO {
 			// DB 연동 3단계 (Execute) -> SELECT -> pstmt.executeQuery()
 			rs = pstmt.executeQuery();
 			
+			
 		}catch(SQLException ex) {
 			ex.printStackTrace();
 		}finally {
