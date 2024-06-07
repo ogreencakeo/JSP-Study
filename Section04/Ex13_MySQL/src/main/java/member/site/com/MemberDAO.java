@@ -125,8 +125,8 @@ public class MemberDAO {
 	}
 	
 	// 한 명의 회원 정보 반환 : getMember()
-	public void getMember(String id) {
-		// MemberVO member = new MemberVO();
+	public MemberVO getMember(String id) {
+		MemberVO member = new MemberVO();
 		
 		try {
 			// DB 연동 1단계 (Conncetion)
@@ -141,13 +141,37 @@ public class MemberDAO {
 			// DB 연동 3단계 (Execute) -> SELECT -> pstmt.executeQuery()
 			rs = pstmt.executeQuery();
 			rs.next();
-			System.out.println(rs.getString("id"));
+			/*
+			 * ★ rs(ResultSet) 객체는 데이터베이스로부터 조회한 데이터를 저장하는 객체 (객체 주소가 반환)
+			 * ★ 여기에서 rs.next() 메서드 사용하는 이유
+			 * 		1. 넥스트 안해주면 에러 발생 -> Before start of result set
+			 * 		2. 기본적으로 처음에는 커서(Cursor)의 위치가 첫 번째 행(First row) 앞에 포지션 되어진다.
+			 * 		3. 따라서, rs.next() 메서드를 사용해서 기본 커서를 다음 행으로 이동시키면서 행이 있는지 없는지 체크
+			 * 		4. 이 과정에서 다음 행 (레코드)이 있으면 true, 없으면 false를 반환
+			*/
+			
+			// 콘솔에 출려
+			/*
+			 * System.out.println(rs.getString("id"));
+			 * System.out.println(rs.getString("pw"));
+			 * System.out.println(rs.getString("name"));
+			 * System.out.println(rs.getString("email"));
+			 * System.out.println(rs.getString("phone"));
+			 */
+			
+			// 멤버 객체 셋팅
+			member.setId(rs.getString("id"));
+			member.setPw(rs.getString("pw"));
+			member.setName(rs.getString("name"));
+			member.setEmail(rs.getString("email"));
+			member.setPhone(rs.getString("phone"));
 			
 		}catch(SQLException ex) {
 			ex.printStackTrace();
 		}finally {
 			disconnect();
 		}
+		return member;
 	}
 	
 	// 삭제 : deleteDB()
