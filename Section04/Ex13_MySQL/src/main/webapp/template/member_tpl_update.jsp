@@ -11,9 +11,8 @@
 
 <jsp:useBean id="db" class="member.site.com.MemberDAO" scope="application" />
 <%
-	db.getMember(id);
-	//MemberVO member = db.getMember(id);
-	// out.println(member);
+	MemberVO member = db.getMember(id);
+	out.println(member);
 %>
 
 <!DOCTYPE html>
@@ -40,11 +39,11 @@
 	<form action="./action/member_update_ok.jsp" method="post" autocomplete="pff">
 		<hr>
 		<ul>
-			<li><input class="input1" type="text" name="id" value="superman" readonly /></li>
-			<li><input class="input1" type="text" name="pw" value="1234" /></li>
-			<li><input class="input1" type="text" name="name" value="슈퍼맨" /></li>
-			<li><input class="input1" type="text" name="email" value="superman@gamil.com" /></li>
-			<li><input class="input1" type="text" name="phone" value="010" /></li>
+			<li><input class="input1" type="text" name="id" value="<%=member.getId() %>" readonly /></li>
+			<li><input class="input1" type="text" name="pw" value="<%=member.getPw() %>" /></li>
+			<li><input class="input1" type="text" name="name" value="<%=member.getName() %>" /></li>
+			<li><input class="input1" type="text" name="email" value="<%=member.getEmail() %>" /></li>
+			<li><input class="input1" type="text" name="phone" value="<%=member.getPhone() %>" /></li>
 		</ul>
 		<hr>
 		<input type="submit" value="수정" />
