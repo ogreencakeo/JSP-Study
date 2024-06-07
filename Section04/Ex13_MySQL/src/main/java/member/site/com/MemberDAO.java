@@ -125,8 +125,8 @@ public class MemberDAO {
 	}
 	
 	// 한 명의 회원 정보 반환 : getMember()
-	public MemberVO getMember(String id) {
-		MemberVO member = new MemberVO();
+	public void getMember(String id) {
+		// MemberVO member = new MemberVO();
 		
 		try {
 			// DB 연동 1단계 (Conncetion)
@@ -140,15 +140,14 @@ public class MemberDAO {
 			
 			// DB 연동 3단계 (Execute) -> SELECT -> pstmt.executeQuery()
 			rs = pstmt.executeQuery();
-			
+			rs.next();
+			System.out.println(rs.getString("id"));
 			
 		}catch(SQLException ex) {
 			ex.printStackTrace();
 		}finally {
 			disconnect();
 		}
-		
-		return member;
 	}
 	
 	// 삭제 : deleteDB()
