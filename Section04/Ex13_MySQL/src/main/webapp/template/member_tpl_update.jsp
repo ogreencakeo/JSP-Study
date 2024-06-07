@@ -11,6 +11,7 @@
 
 <jsp:useBean id="db" class="member.site.com.MemberDAO" scope="application" />
 <%
+	// db.getMember(id);
 	MemberVO member = db.getMember(id);
 	out.println(member);
 %>
