@@ -128,7 +128,24 @@ public class MemberDAO {
 	public MemberVO getMember(String id) {
 		MemberVO member = new MemberVO();
 		
-		// DB에서 전달된 ID에 해당하는 회원 정보를 추출
+		try {
+			// DB 연동 1단계 (Conncetion)
+			connect();
+			
+			// DB 연동 2단계 (Prepare)
+			String strSQL = "select * from tbl_member where id = ?";
+			
+			pstmt = conn.prepareStatement(strSQL);
+			pstmt.setString(1, id);
+			
+			// DB 연동 3단계 (Execute) -> SELECT -> pstmt.executeQuery()
+			rs = pstmt.executeQuery();
+			
+		}catch(SQLException ex) {
+			ex.printStackTrace();
+		}finally {
+			disconnect();
+		}
 		
 		return member;
 	}
