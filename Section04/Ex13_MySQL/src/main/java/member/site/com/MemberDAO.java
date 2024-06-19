@@ -208,10 +208,18 @@ public class MemberDAO {
 			connect();
 			
 			// DB 연동 2단계 (Prepare)
-			String strSQL = "delete from tbl_member where id = ?";
+			String strSQL = null;
 			
-			pstmt = conn.prepareStatement(strSQL);
-			pstmt.setString(1, id);
+			if(!id.equals("deleteAll")) {
+				// 한개 레코드만 삭제
+				strSQL = "delete from tbl_member where id = ?";
+				pstmt = conn.prepareStatement(strSQL);
+				pstmt.setString(1, id);
+			}else {
+				// 전체 레코드 삭제
+				strSQL = "delete from tbl_member";
+				pstmt = conn.prepareStatement(strSQL);
+			}
 			
 			// DB 연동 3단계 (Execute) 
 			pstmt.executeUpdate();
