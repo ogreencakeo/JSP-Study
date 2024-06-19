@@ -50,6 +50,7 @@
 						<%=m %>
 						&nbsp;
 						<button onclick="location.href='<%= application.getAttribute("ROOTPATH") %>/member_control.jsp?action=update&id=<%=m.getId() %>';">Update</button>
+						<button onclick="location.href='<%= application.getAttribute("ROOTPATH") %>/member_control.jsp?action=delete&id=<%=m.getId() %>';">Delete</button>
 					</li>
 				<%
 			}
