@@ -4,6 +4,9 @@
 <%
 	String id = request.getParameter("id");
 	out.println(id);
+	
+	String action = request.getParameter("action");
+	out.println(action);
 %>
 <!DOCTYPE html>
 <html>
@@ -25,16 +28,36 @@
 </style>
 </head>
 <body>
-	<h2>Member Delete</h2>
-	<form action="./action/member_delete_ok.jsp" method="post" autocomplete="off">
-		<input type="hidden" name="id" value="<%=id %>" />
-		<hr>
-		<ul>
-			<li><input class="input1" type="text" name="id" value="<%=id %>" readonly /> Readonly</li>
-		</ul>
-		<hr>
-		<input type="submit" value="삭제" />
-		<button onclick="location.href='<%=application.getAttribute("ROOTPATH") %>/member_control.jsp?action=list'; return false;">리스트 페이지</button>
-	</form>
+	<%
+		if(!action.equals("deleteAll")){
+			%>
+				<h2>Member Delete</h2>
+				<form action="./action/member_delete_ok.jsp" method="post" autocomplete="off">
+					<input type="hidden" name="id" value="<%=id %>" />
+					<hr>
+					<ul>
+						<li><input class="input1" type="text" name="id" value="<%=id %>" readonly /> Readonly</li>
+					</ul>
+					<hr>
+					<input type="submit" value="삭제" />
+					<button onclick="location.href='<%=application.getAttribute("ROOTPATH") %>/member_control.jsp?action=list'; return false;">리스트 페이지</button>
+				</form>
+			<%
+		}else{
+			%>
+				<h2>Member Delete All</h2>
+				<form action="./action/member_deleteAll_ok.jsp" method="post" autocomplete="off">
+					<input type="hidden" name="id" value="deleteAll" />
+					<hr>
+					<ul>
+						<li>전체 레코드가 삭제됩니다. 주의하세요</li>
+					</ul>
+					<hr>
+					<input type="submit" value="전체 삭제" />
+					<button onclick="location.href='<%=application.getAttribute("ROOTPATH") %>/member_control.jsp?action=list'; return false;">리스트 페이지</button>
+				</form>
+			<%
+		}
+	%>
 </body>
 </html>
