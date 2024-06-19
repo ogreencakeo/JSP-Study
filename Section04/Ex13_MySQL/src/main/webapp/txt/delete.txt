@@ -1,0 +1,6 @@
+새로운 파일
+template/member_tpl_delete.jsp
+action/member_delelte_ok.jsp
+
+기존 파일
+MemberDAO.java -> deleteDB()
