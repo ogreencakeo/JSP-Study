@@ -141,6 +141,7 @@ public class MemberDAO {
 		}catch(SQLException ex) {
 			ex.printStackTrace();
 			return false;
+			
 		}finally {
 			// DB 연동 4단계 (close)
 			disconnect();
@@ -201,5 +202,29 @@ public class MemberDAO {
 	}
 	
 	// 삭제 : deleteDB()
+	public boolean deleteDB(String id) {
+		try {
+			// DB 연동 1단계 (Conncetion)
+			connect();
+			
+			// DB 연동 2단계 (Prepare)
+			String strSQL = "delete from tbl_member where id = ?";
+			
+			pstmt = conn.prepareStatement(strSQL);
+			pstmt.setString(1, id);
+			
+			// DB 연동 3단계 (Execute) 
+			pstmt.executeUpdate();
+			
+		}catch(SQLException ex) {
+			ex.printStackTrace();
+			return false;
+			
+		}finally {
+			// DB 연동 4단계 (close)
+			disconnect();
+		}
+		return true;
+	}
 	
 }
