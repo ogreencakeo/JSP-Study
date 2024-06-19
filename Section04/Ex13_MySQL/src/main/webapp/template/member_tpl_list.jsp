@@ -15,14 +15,6 @@
 		line-height: 2rem;
 	}
 </style>
-<script>
-	function deleteAllonClick() {
-		const res = confirm("전체 삭제하시겠습니까?");
-		if(res){
-			window.location.href = "./action/member_deleteAll_ok.jsp";
-		}
-	}
-</script>
 </head>
 <body>
 	<h2>Member List</h2>
@@ -58,6 +50,6 @@
 	</ul>
 	<hr>
 	<button onclick="location.href='<%= application.getAttribute("ROOTPATH") %>/member_control.jsp?action=insert';">회원 입력</button>
-	<button onclick="deleteAllonClick();">전체 삭제</button>
+	<button onclick="location.href='<%= application.getAttribute("ROOTPATH") %>/member_control.jsp?action=deleteAll';">전체 삭제</button>
 </body>
 </html>
