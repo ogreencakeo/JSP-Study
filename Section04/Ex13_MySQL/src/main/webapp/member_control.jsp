@@ -40,6 +40,10 @@
 		case "update":
 			%><jsp:include page="./template/member_tpl_update.jsp" /><%
 			break;
+
+		case "delete":
+			%><jsp:include page="./template/member_tpl_delete.jsp" /><%
+			break;
 		
 		default :
 			out.println("요청 파라미터 값을 다시 확인해주세요!");
