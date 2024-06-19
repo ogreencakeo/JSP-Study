@@ -120,6 +120,32 @@ public class MemberDAO {
 	// 수정 : updateDB()
 	public boolean updateDB(MemberVO m) {
 		
+		try {
+			// DB 연동 1단계 (Conncetion)
+			connect();
+			
+			// DB 연동 2단계 (Prepare)
+			String strSQL = "update tbl_member set pw=?, name=?, email=?, phone=? where id=?";
+			
+			pstmt = conn.prepareStatement(strSQL);
+			
+			pstmt.setString(1, m.getPw());
+			pstmt.setString(2, m.getName());
+			pstmt.setString(3, m.getEmail());
+			pstmt.setString(4, m.getPhone());
+			pstmt.setString(5, m.getId());
+			
+			// DB 연동 3단계 (Execute)
+			pstmt.executeUpdate();
+			
+		}catch(SQLException ex) {
+			ex.printStackTrace();
+			return false;
+		}finally {
+			// DB 연동 4단계 (close)
+			disconnect();
+		}
+		
 		return true;
 	
 	}
