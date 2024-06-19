@@ -42,6 +42,7 @@
 			break;
 
 		case "delete":
+		case "deleteAll" :
 			%><jsp:include page="./template/member_tpl_delete.jsp" /><%
 			break;
 		
