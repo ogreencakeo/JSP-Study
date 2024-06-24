@@ -1,8 +1,37 @@
 @charset "utf-8";
 
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	text-align: center;
+	font-size: 12px;
+}
+
+a{
+	text-decoration: none;
+}
+
+a:link{
+	color: ligtgray;
+}
+
+a:visted{
+	color : white;
+}
+
+a:hover{
+	color : hotpink;
+}
+
+a:active{
+	color : blue;
+}
+
 .wrap{
 	width: 1000px;
-	height: 900px;
 	margin: 0 auto;
 }
 
@@ -11,7 +40,10 @@ header{
 	height: 100px;
 	display: flex;
 	justify-content: space-around;
-	font-size: 0;
+	align-items: center;
+	line-height: 100px;
+	color: white;
+	margin-bottom: 10px;
 }
 
 .top-logo{
@@ -27,33 +59,38 @@ header{
 }
 
 nav{
-	
+	background-color: rgb(0, 0, 64);
+	width: 100%;
+	height : 40px;
+	margin-bottom: 10px;
+}
+
+nav ul{
+	display : flex;
+	justify-content: space-around;
 }
 
 .memnu-link{
-	
+	list-style: none;
+	font-size : 12px;
+	color : white;
+	text-align: center;
+	line-height: 40px;
+	width: 70px;
+	border: 0px solid green;
 }
 
 section{
-	
+	border: 1px solid cyan;
+	background-color: #f8f8f8;
+	height: 400px;
+	line-height: 400px;
+	margin-bottom: 10px;
 }
 
 footer{
-	
-}
-
-table{
-	
-}
-
-th, td{
-	
-}
-
-caption{
-	
-}
-
-button{
-	
+	background-color: slategray;
+	height: 200px;
+	line-height: 200px;
+	color : white;
 }
