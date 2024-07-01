@@ -81,9 +81,10 @@ nav ul{
 }
 
 section{
-	border: 1px solid cyan;
+	border: 0px solid cyan;
 	background-color: #f8f8f8;
 	margin-bottom: 10px;
+	padding-bottom: 26px;
 }
 
 footer{
