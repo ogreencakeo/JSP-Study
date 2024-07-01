@@ -1,0 +1,17 @@
+★ 공통 디자인 영역 분리하여 템플릿 기반으로 레이아웃 만들기
+
+컨트롤러 페이지
+member_control.jsp
+common.jsp
+
+템플릿 폴더
+template/member_tpl_list.jsp
+		 member_tpl_insert.jsp
+
+인클루드 폴더
+include/inc_header.jsp
+		inc_topmenu.js
+		inc_footer.jsp
+		inc_member_list.jsp
+		inc_member_insert.jsp
+		
