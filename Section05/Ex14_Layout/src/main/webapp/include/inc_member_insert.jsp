@@ -3,7 +3,6 @@
 
 <style>
 	.input1{
-		width : 300px;
 		height: 40px;
 		background: #f0f0f0;
 		border: 1px solid #666;
@@ -23,23 +22,23 @@
 		<tbody>	
 			<tr>
 				<th>ID</th>
-				<td align="left"><input class="input1" type="text" name="id" placeholder="아이디 입력" required /></td>
+				<td align="left"><input class="input1" type="text" name="id" placeholder="아이디 입력" size="40" maxlength="6" required /></td>
 			</tr>
 			<tr>
 				<th>Password</th>
-				<td align="left"><input class="input1" type="password" name="pw" placeholder="비밀번호 입력" required /></td>
+				<td align="left"><input class="input1" type="password" name="pw" placeholder="비밀번호 입력" size="40" maxlength="16" required /></td>
 			</tr>
 			<tr>
 				<th>Name</th>
-				<td align="left"><input class="input1" type="text" name="name" placeholder="이름 입력" required /></td>
+				<td align="left"><input class="input1" type="text" name="name" placeholder="이름 입력" size="40" maxlength="8"  required /></td>
 			</tr>
 			<tr>
 				<th>Email</th>
-				<td align="left"><input class="input1" type="text" name="email" placeholder="이메일 입력" required /></td>
+				<td align="left"><input class="input1" type="text" name="email" placeholder="이메일 입력" maxlength="20" size="60" required /></td>
 			</tr>
 			<tr>
 				<th>Phone</th>
-				<td align="left"><input class="input1" type="text" name="phone" placeholder="전화번호 입력" /></td>
+				<td align="left"><input class="input1" type="text" name="phone" placeholder="전화번호 입력" maxlength="13" size="40" /></td>
 			</tr>
 		</tbody>
 	</table>
