@@ -20,7 +20,7 @@
 %>    
  
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>Login Form</title>
@@ -43,7 +43,7 @@
 		<hr>
 		<ul>
 			<li>
-				<input class="input1" type="text" name="id" placeholder="아이디 입력" maxlength="16" size="40" required />
+				<input class="input1" type="text" name="id" placeholder="아이디 입력" maxlength="16" size="40" />
 				현재 세션 : <%=m_id %>
 			</li>
 			<li>
