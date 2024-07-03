@@ -13,6 +13,6 @@
 <title>Login Check</title>
 </head>
 <body>
-	<a href="logout.jsp">로그아웃 피이지</a>
+	<a href="logout.jsp">로그아웃 페이지</a>
 </body>
 </html>
