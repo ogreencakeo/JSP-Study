@@ -7,9 +7,9 @@
 	out.println(sid);
 	
 	// 데이터베이스 회원 정보
-	String db_id = "wonderwomen";
-	String db_pw = "12345";
-	String db_name = "원더우먼";
+	String db_id = "superman";
+	String db_pw = "1234";
+	String db_name = "슈퍼맨";
 	
 	// 넘어온 값 받기
 	String m_id = request.getParameter("id");
@@ -27,7 +27,7 @@
 %>
  
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <title>Login Check</title>
