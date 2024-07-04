@@ -102,11 +102,12 @@
 		if((m_id.equals(db_id)) && (m_pw.equals(db_pw))){
 			
 			// id, pw 맞으면 세션 객체 속성(세션 변수) 셋팅
-			session.setAttribute("m_id", m_id);
-			session.setAttribute("m_pw", m_pw);
+			session.setAttribute("m_id", db_id);
+			session.setAttribute("m_pw", db_pw);
+			session.setAttribute("m_name", db_name);
 			
 			// 출력
-			out.println(session.getAttribute("m_id") + "(" + session.getAttribute("m_pw") + ") 회원님 방문을 환영합니다.");
+			out.println(session.getAttribute("m_id") + "(" + session.getAttribute("m_name") + ") 회원님 방문을 환영합니다.");
 			
 		}else{
 			out.println("먼저 ID/PW 정보를 확인하고 로그인을 해주세요!");
