@@ -9,12 +9,13 @@
 	// 세션 객체 속성 저장
 	String m_id = (String) session.getAttribute("m_id");
 	String m_pw = (String) session.getAttribute("m_pw");
+	String m_name = (String) session.getAttribute("m_name");
 	
 	// 로그인 기본 값
 	boolean login = false;
 	
 	// 로그인 상태
-	if((m_id != null) && (m_pw != null)){
+	if( m_id != null ){
 		login = true;
 	}
 %>    
@@ -42,14 +43,23 @@
 	<form name="login_form" action="./login_check.jsp" method="post" autocomplete="off">
 		<hr>
 		<ul>
-			<li>
-				<input class="input1" type="text" name="id" placeholder="아이디 입력" maxlength="16" size="40" />
-				현재 세션 : <%=m_id %>
-			</li>
-			<li>
-				<input class="input1" type="password" name="pw" placeholder="비밀번호 입력" maxlength="16" size="40" />
-				현재 세션 : <%=m_pw %>
-			</li>
+			<%
+				if(!login){
+					%>
+						<li>
+							<input class="input1" type="text" name="id" placeholder="아이디 입력" maxlength="16" size="40" />
+							현재 세션 : <%=m_id %>
+						</li>
+						<li>
+							<input class="input1" type="password" name="pw" placeholder="비밀번호 입력" maxlength="16" size="40" />
+							현재 세션 : <%=m_pw %>
+						</li>
+					<%
+				}else{
+					out.println("<li><b>" + m_id + " (" + m_name + ")</b> 회원님 로그인 하였습니다. </li>");
+				}
+			%>
+			
 		</ul>
 		<hr>
 		<%
