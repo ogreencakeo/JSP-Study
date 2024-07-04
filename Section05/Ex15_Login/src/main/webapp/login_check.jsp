@@ -1,3 +1,9 @@
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("UTF-8"); %>    
@@ -7,13 +13,40 @@
 	out.println(sid);
 	
 	// 데이터베이스 회원 정보
-	String db_id = "superman";
-	String db_pw = "1234";
-	String db_name = "슈퍼맨";
+	String db_id = null;
+	String db_pw = null;
+	String db_name = null;
 	
 	// 넘어온 값 받기
 	String m_id = request.getParameter("id");
 	String m_pw = request.getParameter("pw");
+	
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	// DB 정보
+	String dbDriver = "com.mysql.cj.jdbc.Driver";
+	String dbUrl = "jdbc:mysql://localhost:3306/mydb";
+	String dbID = "root";
+	String dbPW = "1234";
+	
+	// DB 연동에 필요한 변수들 선언
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	
+	try{
+		Class.forName(dbDriver);
+		conn = DriverManager.getConnection(dbUrl, dbID, dbPW);
+	}
+	catch(SQLException ex){ ex.printStackTrace(); }
+	catch(Exception e){ e.printStackTrace(); }
+	finally{
+		// DB 연동 4단계 (close)
+		if( rs != null )try{ rs.close(); }catch(SQLException ex){}
+		if( pstmt != null )try{ pstmt.close(); }catch(SQLException ex){}
+		if( conn != null )try{ conn.close(); }catch(SQLException ex){}
+	}
+	
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
 	// 아이디 및 비밀번호
 	if(m_id.isEmpty() || m_pw.isEmpty()){
