@@ -24,7 +24,7 @@
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	// DB 정보
 	String dbDriver = "com.mysql.cj.jdbc.Driver";
-	String dbUrl = "jdbc:mysql://localhost:3306/mydb";
+	String dbUrl = "jdbc:mysql://localhost:3306/mydb2";
 	String dbID = "root";
 	String dbPW = "1234";
 	
@@ -34,8 +34,39 @@
 	ResultSet rs = null;
 	
 	try{
+		// DB 연동 1단계 (Connection)
 		Class.forName(dbDriver);
 		conn = DriverManager.getConnection(dbUrl, dbID, dbPW);
+		
+		// DB 연동 2단계 (Prepare)
+		String strSQL = "select * from tbl_member where id=? and pw=?";
+		
+		pstmt = conn.prepareStatement(strSQL);
+		pstmt.setString(1, m_id);
+		pstmt.setString(2, m_pw);
+		
+		// DB 연동 3단계 (Execute)
+		rs = pstmt.executeQuery();
+		// rs.next();
+	
+		// 반환된 아이디 값 여부에 따라 조건 비교
+		if(rs.next()){			
+			out.println(rs.getString("id") + "<br />");
+			out.println(rs.getString("pw") + "<br />");
+			out.println(rs.getString("name") + "<br />");
+		}else{
+			out.println(
+					"<script>" + 
+					"alert('입력하신 정보가 없습니다.');" +
+					"history.back();" +
+					"</script>"
+			);
+		}
+		
+		// DB 에서 가져온 회원 정보 변수에 저장
+		db_id = rs.getString("id");
+		db_pw = rs.getString("pw");
+		db_name = rs.getString("name");
 	}
 	catch(SQLException ex){ ex.printStackTrace(); }
 	catch(Exception e){ e.printStackTrace(); }
