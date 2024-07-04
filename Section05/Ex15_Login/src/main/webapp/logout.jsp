@@ -3,17 +3,18 @@
     
 <%
 	// 삭제 전 출력
-	out.println(session.getAttribute("m_id")); // superman
-	out.println(session.getAttribute("m_pw")); // 1234
+	// out.println(session.getAttribute("m_id")); // superman
+	// out.println(session.getAttribute("m_pw")); // 1234
 	
 	// 세션 객체 초기화 (속성 삭제)
-	session.removeAttribute("m_id");
-	session.removeAttribute("m_pw");
+	// session.removeAttribute("m_id");
+	// session.removeAttribute("m_pw");
+	session.invalidate();
 	out.println("<hr />");
 	
 	// 삭제 후 출력
-	out.println(session.getAttribute("m_id")); // null
-	out.println(session.getAttribute("m_pw")); // null
+	// out.println(session.getAttribute("m_id")); // null
+	// out.println(session.getAttribute("m_pw")); // null
 	
 %>
     
