@@ -12,3 +12,6 @@ desc tbl_member;
 -- 필드 정보 변환하기 
 alter table tbl_member change pw pw varchar(64);
 insert into tbl_member(id, pw, name) values ("test2", sha2("1234", 256), "테스트1");
+
+alter table tbl_member change pw password varchar(128);
+alter table tbl_member change password pw varchar(64);
