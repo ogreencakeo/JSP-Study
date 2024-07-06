@@ -1,3 +1,4 @@
+<%@page import="java.math.BigInteger"%>
 <%@page import="java.security.MessageDigest"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.SQLException"%>
@@ -10,9 +11,9 @@
 
 <%
 	// 일단 DB에 입력된 암호화된 문자열 값과 똑같은 값을 만들어보자
-	String strPw = "1234";
+	/* String strPw = "1234";
 	MessageDigest md = MessageDigest.getInstance("SHA-256");
-	md.update(strPw.getBytes()); // 암호화 처리
+	md.update(strPw.getBytes()); // 암호화 처리 */
 	
 	// 암호화된 문자열 값을 가져오기 -> md.digest() 사용
 	// BitInteger 클래스 사용
@@ -20,7 +21,12 @@
 	// - 그러나 패턴 분석이나 암호화 시 키가 256비트 이상이면 수가 굉장히 커지기 때문에 사용하기도 한다.
 	// - 기본적으로 빅인티저는 오버로드 된 생성자가 많다.
 	// - new BitInteger(int signum(부호), byte[] 배열)
-	out.println("md.digest() : " + md.digest() + "<br / >");
+	// String.format()
+	// 첫 번째 인자 : 문자열 형식 지정, 문자열 내에 %x 형태로 포멧 지정자를 사용 (타입 : String) -> "%64x"
+	// 두 번째 인자 : 포맷 지정자에 대응시킬 값들 (타입 : Object)
+	
+	//String hexPw = String.format("%064x", new BigInteger(md.digest()));
+	// out.println("hexPw : " + hexPw + "<br / >"); 
 %>
 
 <%
@@ -35,6 +41,16 @@
 	// 넘어온 값 받기
 	String m_id = request.getParameter("id");
 	String m_pw = request.getParameter("pw");
+	out.println("암호화 처리 전 : " + m_pw + "<br />");
+	
+	// 암호화
+	String strPw = m_pw;
+	MessageDigest md = MessageDigest.getInstance( "SHA-256" );
+	md.update(strPw.getBytes()); // 암호화 처리
+	String hexPw = String.format("%064x", new BigInteger(1, md.digest()));
+	
+	m_pw = hexPw;
+	out.println("암호화 처리 후 : " + m_pw + "<br />");
 	
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	// DB 정보
@@ -54,11 +70,11 @@
 		conn = DriverManager.getConnection(dbUrl, dbID, dbPW);
 		
 		// DB 연동 2단계 (Prepare)
-		String strSQL = "select * from tbl_member where id=?";
+		String strSQL = "select * from tbl_member where id=? and pw=?";
 		
 		pstmt = conn.prepareStatement(strSQL);
 		pstmt.setString(1, m_id);
-		// pstmt.setString(2, m_pw);
+		pstmt.setString(2, m_pw);
 		
 		// DB 연동 3단계 (Execute)
 		rs = pstmt.executeQuery();
