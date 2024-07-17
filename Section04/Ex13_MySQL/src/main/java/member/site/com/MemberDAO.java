@@ -66,7 +66,7 @@ public class MemberDAO {
 			
 		}catch(SQLException ex) {
 			ex.printStackTrace();
-			// return false;
+			return false;
 		}finally {
 			// DB 연동 4단계 (키워드 -> close) : 자원 반납
 			disconnect();
@@ -235,4 +235,30 @@ public class MemberDAO {
 		return true;
 	}
 	
+	// 중복 ID 체크하기
+	public boolean checkID(String id) {
+		boolean flag = false;
+		
+		try {
+			// DB 연동 1단계 (Connection)
+			connect();
+
+			// DB 연동 2단계 (Prepare)
+			String strSQL = "select * from tbl_member where id=?d";
+			
+			pstmt = conn.prepareStatement(strSQL);
+			pstmt.setString(1, id);
+			
+			// DB 연동 3단계 (Execute)
+			flag = pstmt.executeQuery().next();
+			
+		}catch(SQLException ex) {
+			ex.printStackTrace();
+			return false;
+		}finally {
+			// DB 연동 4단계 (close)
+			disconnect();
+		}
+		return flag;
+	}
 }
