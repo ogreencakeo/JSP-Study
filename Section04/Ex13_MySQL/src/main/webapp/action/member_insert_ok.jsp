@@ -12,12 +12,21 @@
 <%
 	// 중복 ID 체크 => 동일한 아이디 회원이 있는지 체크
 	boolean isID = db.checkID(member.getId());
-	out.println("중복 아이디 체크" + isID);
+
+	// 중복된 아이디가 있다면...
+	if(isID){
+		out.println(
+				"<script>" + 
+				"alert('입력하신 ID는 중복된 아이디 입니다.');" +
+				"history.back();" +
+				"</script>"
+			);
+	}else{
+		// 전달된 한 명의 회원 정보를 DB에 입력하는 순간
+		boolean res = db.insertDB(member);
+		out.println("DB 입력 성공은? => " + res); // true
+	}
 	
-	// 전달된 한 명의 회원 정보를 DB에 입력하는 순간
-	// int res = db.insertDB(member);
-	boolean res = db.insertDB(member);
-	out.println("DB 입력 성공은? => " + res); // true
 %>
 
 <!DOCTYPE html>
