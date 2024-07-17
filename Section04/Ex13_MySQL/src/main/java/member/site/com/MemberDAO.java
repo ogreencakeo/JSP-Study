@@ -244,7 +244,7 @@ public class MemberDAO {
 			connect();
 
 			// DB 연동 2단계 (Prepare)
-			String strSQL = "select * from tbl_member where id=?d";
+			String strSQL = "select * from tbl_member where id=?";
 			
 			pstmt = conn.prepareStatement(strSQL);
 			pstmt.setString(1, id);
