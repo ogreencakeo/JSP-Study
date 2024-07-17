@@ -29,7 +29,7 @@
 			out.println("<h2>업데이트 실패!</h2>");
 		}else{
 			%>
-				<h2>입력하신 정보로 DB 업데이트 되었습ㄴ디ㅏ.</h2>
+				<h2>입력하신 정보로 DB 업데이트 되었습니다.</h2>
 				<hr>
 				<ul>
 					<li>아이디 : <jsp:getProperty name="member" property="id" /></li>
