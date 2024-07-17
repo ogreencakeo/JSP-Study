@@ -45,7 +45,7 @@ public class MemberDAO {
 			// DB 연동 2단계 (키워드 -> Prepare) : SQL 쿼리 준비
 			// SQL 쿼리를 작성하고 해당 쿼리를 실행하기 위한 그 전 단계로 DB에 입력을 준비하는 단계
 			// SQL 쿼리문 준비 및 실행을 위한 statement 또는 preparedSatement 객체 생성이 필요 -> pstmt = conn.pre..(SQL)
-			String strSQL = "insert into tbl_member(id, pw, name, email, phone) values(?, ?, ?, ?, ?)";
+			String strSQL = "insert into tbl_member(id, pw, name, email, phone) values(?, sha2(?, 256), ?, ?, ?)";
 			
 			pstmt = conn.prepareStatement(strSQL);
 			
