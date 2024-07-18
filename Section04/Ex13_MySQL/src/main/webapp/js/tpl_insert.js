@@ -29,13 +29,31 @@ function checkIdReg(e){
 	// [3] 
 	// 비밀번호가 숫자로 시작하는지를 체크
 	// 예) /^[0-9]/ -> 문자열의 시작이 숫자로 시작하는지 찾는 패턴
-	const regExp = /^[0-9]/g;
+	/*const regExp = /^[0-9]/g;
 	const strPassword = "123abdashg";
 	if(regExp.test(strPassword)){
 		console.log("비밀번호가 숫자로 시작합니다.");
 	}else{
 		console.log("비밀번호가 숫자로 시작하지 않습니다.");
+	}*/
+	
+	// [4]
+	// 숫자와 영문자만 허용하기 -> 한글 허용 X
+	const regExp = /[^0-9a-zA-Z]/g;
+	const et = e.target;
+	
+	// 조건 처리
+	if(regExp.test(et.value)){
+		// alert("아이디 입력에서는 한글로 시작할 수 없습니다.");
+		et.value = et.value.replace(regExp, "");
+		// et.value로 입력 필드의 값을 가져와서 regExp로 식별된 한글을 replace 함수로 제거함
 	}
+	
+	// replace
+	// let str2 = "홍GilDong";
+	
+	// console.log(str2.replace('홍','')); // GilDong
+	// console.log(str2.replace(regExp, ''));
 };
 
 function popUpWindow(id, name, url){
