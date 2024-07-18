@@ -1,5 +1,18 @@
 use mydb2;
 
+create database praticedb;
+use praticedb;
+
+create table tbl_member(
+	id varchar(8),
+    pw varchar(10),
+    name varchar(5),
+    email varchar(16),
+    phone varchar(13)
+);
+
+desc tbl_member;
+
 show tables;
 select * from tbl_member;
 
