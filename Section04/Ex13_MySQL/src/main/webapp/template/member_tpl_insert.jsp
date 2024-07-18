@@ -28,7 +28,7 @@
 		<hr>
 			<ul>
 				<li>
-					<input class="input1" type="text" name="id" placeholder="아이디 입력" required>
+					<input class="input1" type="text" name="id" placeholder="아이디 입력" required onkeyup="checkIdReg(event);">
 					<input type="checkbox" id="chk1" name="chkId" /> 
 					<label for="chk1">Id 중복 체크</label>
 				</li>
