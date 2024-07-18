@@ -1,4 +1,16 @@
 
+function checkIdReg(e){
+	// [1]
+	const regExp = /[^0-9]/g;	
+	// 패턴 -> 숫자와 영문자만 허용
+	// 기본적으로 / 와 / 사이에는 패턴이 들어간다.
+	// 괄호 사이에 ^(캐럿)은 부정을 의미(뭐뭐 이외..라는 의미) -> 패턴이 아닌 것을 의미
+	const et = e.target;
+	console.log(et.value); // et만 찍으면 값이 출력 X
+	
+	// 사용자가 입력한 값이 내가 만든 패턴에 맞는지 안맞는지 체크 -> true, false -> ~.test() 사용
+	console.log(regExp.test(et.value)); // 패턴을 적용해서 true, false 반환
+
 function popUpWindow(id, name, url){
 	
 	const chkBox = document.querySelector("#" + id);
