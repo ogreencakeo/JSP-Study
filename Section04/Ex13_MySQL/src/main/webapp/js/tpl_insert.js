@@ -28,6 +28,14 @@ function checkIdReg(e){
 	
 	// [3] 
 	// 비밀번호가 숫자로 시작하는지를 체크
+	// 예) /^[0-9]/ -> 문자열의 시작이 숫자로 시작하는지 찾는 패턴
+	const regExp = /^[0-9]/g;
+	const strPassword = "123abdashg";
+	if(regExp.test(strPassword)){
+		console.log("비밀번호가 숫자로 시작합니다.");
+	}else{
+		console.log("비밀번호가 숫자로 시작하지 않습니다.");
+	}
 };
 
 function popUpWindow(id, name, url){
