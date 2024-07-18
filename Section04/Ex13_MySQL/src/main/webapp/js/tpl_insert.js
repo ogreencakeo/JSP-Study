@@ -1,15 +1,34 @@
 
 function checkIdReg(e){
 	// [1]
-	const regExp = /[^0-9]/g;	
+	// const regExp = /[^0-9]/g;	
 	// 패턴 -> 숫자와 영문자만 허용
 	// 기본적으로 / 와 / 사이에는 패턴이 들어간다.
 	// 괄호 사이에 ^(캐럿)은 부정을 의미(뭐뭐 이외..라는 의미) -> 패턴이 아닌 것을 의미
-	const et = e.target;
-	console.log(et.value); // et만 찍으면 값이 출력 X
+	// ^ -> 괄호 밖의 정규표현식에서는 문자열의 시작을 의미
+	// g는 글로벌 태그 -> "전체 문자열에서 패턴을 찾겠다"는 의미
+	// const et = e.target;
+	// console.log(et.value); // et만 찍으면 값이 출력 X
 	
 	// 사용자가 입력한 값이 내가 만든 패턴에 맞는지 안맞는지 체크 -> true, false -> ~.test() 사용
-	console.log(regExp.test(et.value)); // 패턴을 적용해서 true, false 반환
+	// console.log(regExp.test(et.value)); // 패턴을 적용해서 true, false 반환
+	
+	// [2]
+	// match() 함수로 숫자만 검색
+	// const str = "나는 1990년이 끝나고 2000년이 시작되면 다시 1부터 시작하는 줄 알았다.";
+	// const regExp = /\d+/g; // + 없으면 숫자 하나하나씩 모두 검사
+	
+	// const matches = str.match(regExp);
+	// console.log(matches); // [1990, 2000, 1]
+	// console.log(matches.length); // 3
+	
+	/*for(i=0; i<matches.length; i++){
+		console.log(matches[i]);
+	}*/
+	
+	// [3] 
+	// 비밀번호가 숫자로 시작하는지를 체크
+};
 
 function popUpWindow(id, name, url){
 	
