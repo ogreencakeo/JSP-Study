@@ -18,3 +18,14 @@ desc tbl_member2;
 -- 테이블 변경 (id필드명)
 alter table tbl_member2 change memberId m_id varchar(50);
 alter table tbl_member2 change m_id m_id varchar(5) not null;
+
+-- 테이블 필드 하나 제거 (m_pw)
+alter table tbl_member2 drop m_pw;
+alter table tbl_member2 drop column m_pw;
+
+-- 테이블 필드 하나 추가 (m_pw)
+alter table tbl_member2 add m_pw varchar(64) not null;
+alter table tbl_member2 add column m_pw varchar(64) not null;
+
+-- 컬럼 위치 지정하기
+alter table tbl_member2 add column m_pw varchar(64) not null after m_id;
