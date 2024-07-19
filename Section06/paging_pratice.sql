@@ -14,6 +14,7 @@ create table tbl_member2(
 
 show tables;
 desc tbl_member2;
+select * from tbl_member2;
 
 -- 테이블 변경 (id필드명)
 alter table tbl_member2 change memberId m_id varchar(50);
@@ -29,3 +30,22 @@ alter table tbl_member2 add column m_pw varchar(64) not null;
 
 -- 컬럼 위치 지정하기
 alter table tbl_member2 add column m_pw varchar(64) not null after m_id;
+
+-- insert 쿼리문 작성
+insert into tbl_member2(m_id, m_pw, m_name, m_email) values
+	("test1", "1234", "테스트1", "test1@test.com"),
+    ("test2", "1234", "테스트2", "test2@test.com"),
+    ("test3", "1234", "테스트3", "test3@test.com");
+
+-- email 필드에 unique 지정한거 삭제하기
+alter table tbl_member2 drop key m_email;
+
+delete from tbl_member2;
+alter table tbl_member2 auto_increment = 1;
+-- insert 쿼리문 작성2
+insert into tbl_member2(m_id, m_pw, m_name, m_email) values
+	("test1", "1234", "테스트1", "test@test.com"),
+    ("test2", "1234", "테스트2", "test@test.com"),
+    ("test3", "1234", "테스트3", "test@test.com"),
+    ("test4", "1234", "테스트4", "test@test.com"),
+    ("test5", "1234", "테스트5", "test@test.com");
