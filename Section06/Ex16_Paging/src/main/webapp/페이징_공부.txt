@@ -1,0 +1,9 @@
+페이징 공부를 위한 필요한 파일들
+
+1. common.jsp
+2. member_control.jsp
+3. template/member_tpl_list.jsp
+
+4. MemberVO.java
+5. MemberDAO.java => connet(), disconnet(), listDB()
+6. MySQL 드라이버 파일 
