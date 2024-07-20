@@ -1,5 +1,8 @@
+<%@page import="member.site.com.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<jsp:useBean id="db" class="member.site.com.MemberDAO" scope="application" />
 
 <%
 	// 넘어온 페이지 값이 없으면 => 1
@@ -63,15 +66,21 @@
 				<th>level</th>
 			</tr>
 			<!-- 반복문을 사용하여 dataList 출력하기 -->
-			<tr>
-				<td>1</td>
-				<td>superman</td>
-				<td>1234</td>
-				<td>슈퍼맨</td>
-				<td>superman@gmail.com</td>
-				<td>010-1111-1111</td>
-				<td>0</td>
-			</tr>
+			<%
+				for(MemberVO m : db.listDB()){
+					%>
+						<tr>
+							<td><%=m.getIdx() %></td>
+							<td><%=m.getM_id() %></td>
+							<td><%=m.getM_pw() %></td>
+							<td><%=m.getM_name() %></td>
+							<td><%=m.getM_email() %></td>
+							<td><%=m.getM_phone() %></td>
+							<td><%=m.getM_level() %></td>
+						</tr>
+					<%
+				}
+			%>
 		</table>
 		<hr />
 	</main>
