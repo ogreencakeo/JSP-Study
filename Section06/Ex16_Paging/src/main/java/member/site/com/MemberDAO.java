@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class MemberDAO {
 	
@@ -33,5 +34,49 @@ public class MemberDAO {
 	public void disconnect() {
 		if(pstmt != null) try { pstmt.close(); }catch(SQLException ex) {}
 		if(conn != null) try { conn.close(); }catch(SQLException ex) {}
+	}
+	
+	// 출력 : listDB()
+	public ArrayList<MemberVO> listDB(){
+		// ArrayList 선언
+		// DB에서 한 명씩 가져온 회원을 담는 용도로 사용
+		ArrayList<MemberVO> dataList = new ArrayList<>();
+		try {
+			// DB 연동 1단계 (Connection)
+			connect();
+
+			// DB 연동 2단계 (Prepare)
+			String strSQL = "select * from tbl_member2";
+			pstmt = conn.prepareStatement(strSQL);
+			
+			// DB 연동 3단계 (Execute)
+			rs = pstmt.executeQuery();
+			
+			// 반복하면서 회원 한 명씩 ArrayList(dataList)에 담기
+			// rs.close() 자원 반납하는거 꼭 기억
+			while(rs.next()) {
+				// 하나의 레코드에 들어있는 필드 값들을 저장하는 객체 생성
+				MemberVO m = new MemberVO();
+				m.setIdx(rs.getInt(1));
+				m.setM_id(rs.getString(2));
+				m.setM_pw(rs.getString(3));
+				m.setM_name(rs.getString(4));
+				m.setM_email(rs.getString(5));
+				m.setM_phone(rs.getString(6));
+				m.setM_level(rs.getInt(7));
+				
+				// ArrayList에 추가
+				dataList.add(m);
+			}
+			
+			rs.close();
+		
+		}catch(SQLException ex) {
+			ex.printStackTrace();
+		}finally {
+			// DB 연동 4단계 (Close)
+			disconnect();
+		}
+		return dataList;
 	}
 }
