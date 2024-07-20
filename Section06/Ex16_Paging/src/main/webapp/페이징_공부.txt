@@ -7,3 +7,13 @@
 4. MemberVO.java
 5. MemberDAO.java => connet(), disconnet(), listDB()
 6. MySQL 드라이버 파일 
+
+------------------
+1. 테이블 생성
+2. 필드 변경 (데이터 타입, 길이, 널 등)
+3. 필드 한 개 제거
+4. 필드 한 개 추가 -> 원하는 위치에 추가 : after
+5. 입력
+6. 필드 unique key 지정 제거 -> drop
+7. 데이터 삭제, 테이블 삭제
+8. 데이터 모두 삭제 후 auto_increment 값을 초기화 -> 1부터 시작
