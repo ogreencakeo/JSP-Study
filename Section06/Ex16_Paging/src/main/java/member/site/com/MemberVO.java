@@ -8,7 +8,7 @@ public class MemberVO {
 	private String m_name;
 	private String m_email;
 	private String m_phone;
-	private String m_level;
+	private int m_level;
 	
 	// Getter and Setter
 	public int getIdx() {
@@ -47,10 +47,10 @@ public class MemberVO {
 	public void setM_phone(String m_phone) {
 		this.m_phone = m_phone;
 	}
-	public String getM_level() {
+	public int getM_level() {
 		return m_level;
 	}
-	public void setM_level(String m_level) {
+	public void setM_level(int m_level) {
 		this.m_level = m_level;
 	}
 	
