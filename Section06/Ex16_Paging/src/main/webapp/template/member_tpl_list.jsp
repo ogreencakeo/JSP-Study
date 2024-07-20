@@ -1,5 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%
+	// 넘어온 페이지 값이 없으면 => 1
+	String _page = request.getParameter("page");
+	
+	// 일단 처음에 접속하면 1페이지로 셋팅
+	int cPage = 1;
+	
+	// 페이지 값이 널이 아니면 해당 페이지 값을 셋팅
+	if(_page != null){
+		cPage = Integer.parseInt (_page);
+	}
+%>    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +52,7 @@
 		<h2>Member List with Paging</h2>
 		<hr />
 		<table border=1>
-			<caption>Current Page : 100</caption>
+			<caption>Current Page : <%= cPage %></caption>
 			<tr>
 				<th>#</th>
 				<th>id</th>
