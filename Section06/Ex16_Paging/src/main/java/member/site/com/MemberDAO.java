@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class MemberDAO {
 	
@@ -26,5 +27,11 @@ public class MemberDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	// 연결 해제 : disconnect()
+	public void disconnect() {
+		if(pstmt != null) try { pstmt.close(); }catch(SQLException ex) {}
+		if(conn != null) try { conn.close(); }catch(SQLException ex) {}
 	}
 }
