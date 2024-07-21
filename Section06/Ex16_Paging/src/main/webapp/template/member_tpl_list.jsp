@@ -22,6 +22,8 @@
 	
 	// 레코드 시작 위치 계산
 	cPosition = (cPage - 1) * limitValue;
+	// cPosition = (cPage * limitValue) - limitValue;
+	
 	/* 
 		현재 페이지 					1p  2p  3p  4p  5p
 		
