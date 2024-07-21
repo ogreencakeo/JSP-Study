@@ -23,8 +23,10 @@
 	// 레코드 시작 위치 계산
 	/* 
 		현재 페이지 					1p  2p  3p  4p  5p
-		레코드 시작위치	(cPosition)		
-		보여지는 글 갯수 (limitValue)
+		
+		레코드 시작위치	(cPosition)		0	5	10	15	20	
+		
+		보여지는 글 갯수 (limitValue)	5	5	5	5	5
 	*/
 %>    
 
