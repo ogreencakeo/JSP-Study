@@ -83,6 +83,15 @@
 			%>
 		</table>
 		<hr />
+		<a href="<%= application.getAttribute("ROOTPATH")%>/member_control.jsp?action=list
+		&page=<%=cPage - 1 %>">◀ 이전 페이지</a>
+		
+		&nbsp;&nbsp;&nbsp;
+		
+		<a href="<%= application.getAttribute("ROOTPATH")%>/member_control.jsp?action=list
+		&page=<%=cPage + 1 %>">
+		 다음 페이지 ▶
+		 </a>
 	</main>
 </body>
 </html>
