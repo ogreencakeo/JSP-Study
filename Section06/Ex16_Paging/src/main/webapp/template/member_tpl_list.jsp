@@ -101,6 +101,21 @@
 			%>
 		</table>
 		<hr />
+		<%
+			// 이전 페이지 vs 다음 페이지 처리
+			// 버튼 안내문 처리는 가급적 "다음 페이지"부터 처리하는 걸 추천 (크게 상관 X)
+			
+			// ★ 기본적으로 이전 페이지 vs 다음 페이지 처리를 위해서 몇 가지 필요한 변수들
+			// - 총 레코드 수 : totalRecord
+			// - 총 페이지 수 : totalPage
+			// - 이전 페이지 값 : prev(Cpage - 1 이렇게 안하기 위해서)
+			// - 다음 페이지 값 : next(Cpage + 1)
+			// - 한 페이지에 보여지는 글 갯수 : limitValue()
+			
+			// ★ 총 페이지 수 = 총 레코드 수 / 한 페이지에 보여지는 레코드 수 (소수점 주의)
+			// totalPage = totalRecord / limitValue
+			// 15 / 4 하면 소수점이 나오므로 올림 처리 필요 -> 소수점이 나온다. -> 즉, 페이지가 있다.
+		%>
 		<div class="link-div">
 			<a href="<%= application.getAttribute("ROOTPATH")%>/member_control.jsp?action=list
 			&page=<%=cPage - 1 %>">◀ 이전 페이지</a>
