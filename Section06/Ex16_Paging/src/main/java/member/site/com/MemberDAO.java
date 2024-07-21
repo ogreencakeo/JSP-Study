@@ -37,7 +37,7 @@ public class MemberDAO {
 	}
 	
 	// 출력 : listDB()
-	public ArrayList<MemberVO> listDB(){
+	public ArrayList<MemberVO> listDB(int cPosition, int limitVale){
 		// ArrayList 선언
 		// DB에서 한 명씩 가져온 회원을 담는 용도로 사용
 		ArrayList<MemberVO> dataList = new ArrayList<>();
@@ -46,7 +46,7 @@ public class MemberDAO {
 			connect();
 
 			// DB 연동 2단계 (Prepare)
-			String strSQL = "select * from tbl_member2 limit 0, 4";
+			String strSQL = "select * from tbl_member2 limit " + cPosition + "," + limitVale;
 			pstmt = conn.prepareStatement(strSQL);
 			
 			// DB 연동 3단계 (Execute)
