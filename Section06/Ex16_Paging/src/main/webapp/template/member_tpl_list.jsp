@@ -115,6 +115,25 @@
 			// ★ 총 페이지 수 = 총 레코드 수 / 한 페이지에 보여지는 레코드 수 (소수점 주의)
 			// totalPage = totalRecord / limitValue
 			// 15 / 4 하면 소수점이 나오므로 올림 처리 필요 -> 소수점이 나온다. -> 즉, 페이지가 있다.
+			// 이때 함수 사용 -> 소수점 처리 -> 15 / 4 = 3.75 --> 4로 만들어주는게 필요
+			// Math 클래스내 적절한 함수 사용
+			
+			// ★ 테스트
+			// 소수점 제거 함수 -> Math.ceil() 올림 함수, floor() 버림 함수, round() 반올림 함수
+			// ceil() 	: 소수점 아래의 숫자를 모두 버리고, 정수부에 플러스 1
+			// floor() 	: 소수점 아래의 숫자를 모두 버림
+			// round() 	: 소수점 아래의 숫자를 모두 버리고, 대신에 0.5 이상은 1로 올리고 0.5미만은 그냥 버림
+			
+			/* 
+			out.println(3.75 + "<br />");
+			out.println("Math.ceil() => " + Math.ceil(3.75) + "<br />"); // 4.0 -> 반환값은 double type
+			out.println("String.format() => " + String.format("%.0f", Math.ceil(3.75)) + "<br />");
+			out.println("(int) => " + (int) Math.ceil(3.75) + "<br />");
+			
+			out.println("ceil() => " + (int) Math.ceil(3.45) + "<br />"); // 4
+			out.println("floor() => " + (int) Math.floor(3.45) + "<br />"); // 3
+			out.println("round() => " + (int) Math.round(3.45) + "<br />"); // 3 
+			*/
 		%>
 		<div class="link-div">
 			<a href="<%= application.getAttribute("ROOTPATH")%>/member_control.jsp?action=list
