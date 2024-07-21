@@ -21,6 +21,7 @@
 	int limitValue = 5; // 한 페이지당 보여지는 레코드의 갯수
 	
 	// 레코드 시작 위치 계산
+	cPosition = (cPage - 1) * limitValue;
 	/* 
 		현재 페이지 					1p  2p  3p  4p  5p
 		
