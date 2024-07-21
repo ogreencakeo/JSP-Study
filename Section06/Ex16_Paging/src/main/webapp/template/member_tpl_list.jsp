@@ -18,19 +18,13 @@
 	
 	// LIMIT ?, ? => 이 값을 여기서 계산하여 전달
 	int cPosition = 0;	// 해당 페이지에서 보여져야 하는 레코드의 시작 위치
-	int limitValue = 5; // 한 페이지당 보여지는 레코드의 갯수
+	int limitValue = 4; // 한 페이지당 보여지는 레코드의 갯수
 	
 	// 레코드 시작 위치 계산
 	cPosition = (cPage - 1) * limitValue;
 	// cPosition = (cPage * limitValue) - limitValue;
 	
-	/* 
-		현재 페이지 					1p  2p  3p  4p  5p
-		
-		레코드 시작위치	(cPosition)		0	5	10	15	20	
-		
-		보여지는 글 갯수 (limitValue)	5	5	5	5	5
-	*/
+	out.println("limit : " + cPosition + ", " + limitValue) ;
 %>    
 
 <!DOCTYPE html>
