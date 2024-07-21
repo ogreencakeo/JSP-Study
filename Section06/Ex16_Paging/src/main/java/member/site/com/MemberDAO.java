@@ -46,7 +46,7 @@ public class MemberDAO {
 			connect();
 
 			// DB 연동 2단계 (Prepare)
-			String strSQL = "select * from tbl_member2";
+			String strSQL = "select * from tbl_member2 limit 0, 4";
 			pstmt = conn.prepareStatement(strSQL);
 			
 			// DB 연동 3단계 (Execute)
