@@ -79,4 +79,11 @@ public class MemberDAO {
 		}
 		return dataList;
 	}
+	
+	// 총 레코드 수 구하기 : getTotalRecord()
+	public int getTotalRecord() {
+		int tCount = 15;
+		return tCount;
+	}
+	
 }
