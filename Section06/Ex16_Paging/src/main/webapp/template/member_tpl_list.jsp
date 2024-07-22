@@ -25,6 +25,15 @@
 	// cPosition = (cPage * limitValue) - limitValue;
 	
 	out.println("limit : " + cPosition + ", " + limitValue) ;
+	
+	// ● 총 레코드 수 구하기
+	int tCount = db.getTotalRecord();
+	
+	// ● 총 페이지 구하기
+	int totalRecord = tCount;
+	int totalPage = (int) Math.ceil(totalRecord / Math.floor(limitValue));
+	int prev = cPage - 1;
+	int next = cPage + 1;
 %>    
 
 <!DOCTYPE html>
@@ -137,11 +146,6 @@
 		
 			// out.println(15 / 4.0 + "<br />"); // 3.75
 			
-			// ● 총 페이지 구하기
-			int totalRecord = 15;
-			int totalPage = (int) Math.ceil(totalRecord / Math.floor(limitValue));
-			int prev = cPage - 1;
-			int next = cPage + 1;
 			
 			out.println("총 페이지 수 : " + totalPage + "Pages <br />");
 			out.println("이전 페이지 : " + prev);
@@ -155,13 +159,21 @@
 				// 기본적으로 이전 페이지 버튼의 노출은 "첫 페이지" 값하고 비교
 				// 버튼 처리 -> 이전 페이지(prev) 값이 첫 페이지 값보다 작으면 -> 링크 비활성화
 				// 첫 페이지 왔을 때
-				if(prev < 1){
-					out.println("<span style='color:#d0d0d0'>◀ 이전 페이지</span>");
-				}else{
-					out.println("<a href='" + application.getAttribute("ROOTPATH") + "/member_control.jsp?action=list&page=" + prev + "'>◀ 이전 페이지</a>");
-				}
+				/* 
+					if(prev < 1){
+						out.println("<span style='color:#d0d0d0'>◀ 이전 페이지</span>");
+					}else{
+						out.println("<a href='" + application.getAttribute("ROOTPATH") + "/member_control.jsp?action=list&page=" + prev + "'>◀ 이전 페이지</a>");
+					} 
+				*/
+				out.println(
+					prev < 1 ?
+					"<span style='color:#d0d0d0'>≪ ◀ 이전 페이지</span>" :
+					"<a href='" + application.getAttribute("ROOTPATH") + "/member_control.jsp?action=list&page=" + 1 + "'>≪</a>" +
+					"<a href='" + application.getAttribute("ROOTPATH") + "/member_control.jsp?action=list&page=" + prev + "'>◀ 이전 페이지</a> " 
+				);
 			%>
-			&nbsp;&nbsp;&nbsp;
+			&nbsp; / &nbsp;
 			<!-- <a href="<%= application.getAttribute("ROOTPATH")%>/member_control.jsp?action=list&page=<%=next %>"> 다음 페이지 ▶ -->
 			 </a>
 			 <%
@@ -170,11 +182,19 @@
 			 	// 총 페이지가 4라면 그 4페이지가 맨 마지막 페이지라는 뜻이므로 그때 비교하여 안내문 출력 (버튼 비활성화)
 			 	// 버튼 노출 -> 총 페이지(totalPage) 값보다 다음 페이지(next) 값이 커지면 -> 링크 비활성화
 			 	// 맨 마지막 페이지에 왔을 때
-			 	if(totalPage < next){
-			 		out.println("<span style='color:#d0d0d0'>다음 페이지 ▶</span>");
-			 	}else{
-			 		out.println("<a href='" + application.getAttribute("ROOTPATH") + "/member_control.jsp?action=list&page=" + next + "'>다음 페이지 ▶</a>");
-			 	}
+			 	/* 
+				 	if(totalPage < next){
+				 		out.println("<span style='color:#d0d0d0'>다음 페이지 ▶</span>");
+				 	}else{
+				 		out.println("<a href='" + application.getAttribute("ROOTPATH") + "/member_control.jsp?action=list&page=" + next + "'>다음 페이지 ▶</a>");
+				 	} 
+			 	*/
+			 	out.println(
+		 			totalPage < next ?
+ 					"<span style='color:#d0d0d0'>다음 페이지 ▶ ≫</span>" :
+ 					"<a href='" + application.getAttribute("ROOTPATH") + "/member_control.jsp?action=list&page=" + next + "'>다음 페이지 ▶</a> " +
+ 					"<a href='" + application.getAttribute("ROOTPATH") + "/member_control.jsp?action=list&page=" + totalPage + "'>≫</a>"
+		 		);
 			 %>
 		</div>
 	</main>
