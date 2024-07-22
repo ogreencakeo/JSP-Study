@@ -82,7 +82,29 @@ public class MemberDAO {
 	
 	// 총 레코드 수 구하기 : getTotalRecord()
 	public int getTotalRecord() {
-		int tCount = 15;
+		int tCount = 0;
+		try {
+			// DB 연동 1단계 (Connection)
+			connect();
+			
+			// DB 연동 2단계 (Prepare)
+			String strSQL = "select count(*) from tbl_member2";
+			pstmt = conn.prepareStatement(strSQL);
+			
+			// DB 연동 3단계 (Execute)
+			rs = pstmt.executeQuery();
+			
+			// rs.next() 메서드를 사용하여 레코드 수 반영
+			if(rs.next()) {
+				tCount = rs.getInt(1);
+			}
+			
+		}catch(SQLException ex) {
+			ex.printStackTrace();
+		}finally {
+			// DB 연동 4단계 (Close)
+			disconnect();
+		}
 		return tCount;
 	}
 	
