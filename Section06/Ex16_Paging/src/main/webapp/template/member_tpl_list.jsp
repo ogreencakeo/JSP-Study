@@ -28,6 +28,7 @@
 	
 	// ● 총 레코드 수 구하기
 	int tCount = db.getTotalRecord();
+	out.println("getTotalRecord() 호출 : " + tCount);
 	
 	// ● 총 페이지 구하기
 	int totalRecord = tCount;
@@ -82,7 +83,10 @@
 		<h2>Member List with Paging</h2>
 		<hr />
 		<table border=1>
-			<caption>Current Page : <%= cPage %></caption>
+			<caption>
+				Current Page : <%= cPage %> / <%=totalPage %> &nbsp;
+				<span style="color : hotpink; text-transform: capitalize;">( Total Records : <b><%=tCount %></b> )</span>
+			</caption>
 			<tr>
 				<th>#</th>
 				<th>id</th>
