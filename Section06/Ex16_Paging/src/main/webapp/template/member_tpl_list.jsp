@@ -149,12 +149,20 @@
 			out.println(", 다음 페이지 : " + next + "<br />");
 		%>
 		<div class="link-div" style="float:right">
-			<a href="<%= application.getAttribute("ROOTPATH")%>/member_control.jsp?action=list&page=<%=prev %>">◀ 이전 페이지</a>
+			<%-- <a href="<%= application.getAttribute("ROOTPATH")%>/member_control.jsp?action=list&page=<%=prev %>">◀ 이전 페이지</a> --%>
+			<%
+				// ● 이전 페이지 구현하기
+				// 기본적으로 이전 페이지 버튼의 노출은 "첫 페이지" 값하고 비교
+				// 버튼 처리 -> 이전 페이지(prev) 값이 첫 페이지 값보다 작으면 -> 링크 비활성화
+				// 첫 페이지 왔을 때
+				if(prev < 1){
+					out.println("<span style='color:#d0d0d0'>◀ 이전 페이지</span>");
+				}else{
+					out.println("<a href='" + application.getAttribute("ROOTPATH") + "/member_control.jsp?action=list&page=" + prev + "'>◀ 이전 페이지</a>");
+				}
+			%>
 			&nbsp;&nbsp;&nbsp;
-			<!-- 
-				<a href="<%= application.getAttribute("ROOTPATH")%>/member_control.jsp?action=list&page=<%=next %>">
-			 다음 페이지 ▶
-			 -->
+			<!-- <a href="<%= application.getAttribute("ROOTPATH")%>/member_control.jsp?action=list&page=<%=next %>"> 다음 페이지 ▶ -->
 			 </a>
 			 <%
 			 	// ● 다음 페이지 구현하기 
@@ -163,7 +171,7 @@
 			 	// 버튼 노출 -> 총 페이지(totalPage) 값보다 다음 페이지(next) 값이 커지면 -> 링크 비활성화
 			 	// 맨 마지막 페이지에 왔을 때
 			 	if(totalPage < next){
-			 		out.println("<font color='#d0d0d0'>다음 페이지 ▶</font>");
+			 		out.println("<span style='color:#d0d0d0'>다음 페이지 ▶</span>");
 			 	}else{
 			 		out.println("<a href='" + application.getAttribute("ROOTPATH") + "/member_control.jsp?action=list&page=" + next + "'>다음 페이지 ▶</a>");
 			 	}
