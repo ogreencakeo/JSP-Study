@@ -134,15 +134,24 @@
 			out.println("floor() => " + (int) Math.floor(3.45) + "<br />"); // 3
 			out.println("round() => " + (int) Math.round(3.45) + "<br />"); // 3 
 			*/
+		
+			// out.println(15 / 4.0 + "<br />"); // 3.75
+			
+			// ● 총 페이지 구하기
+			int totalRecord = 15;
+			int totalPage = (int) Math.ceil(totalRecord / Math.floor(limitValue));
+			int prev = cPage - 1;
+			int next = cPage + 1;
+			
+			out.println("총 페이지 수 : " + totalPage + "Pages <br />");
+			out.println("이전 페이지 : " + prev);
+			out.println(", 현재 페이지 : <b style='color : red'>" + cPage + "</b>");
+			out.println(", 다음 페이지 : " + next + "<br />");
 		%>
-		<div class="link-div">
-			<a href="<%= application.getAttribute("ROOTPATH")%>/member_control.jsp?action=list
-			&page=<%=cPage - 1 %>">◀ 이전 페이지</a>
-			
+		<div class="link-div" style="float:right">
+			<a href="<%= application.getAttribute("ROOTPATH")%>/member_control.jsp?action=list&page=<%=cPage - 1 %>">◀ 이전 페이지</a>
 			&nbsp;&nbsp;&nbsp;
-			
-			<a href="<%= application.getAttribute("ROOTPATH")%>/member_control.jsp?action=list
-			&page=<%=cPage + 1 %>">
+			<a href="<%= application.getAttribute("ROOTPATH")%>/member_control.jsp?action=list&page=<%=cPage + 1 %>">
 			 다음 페이지 ▶
 			 </a>
 		</div>
