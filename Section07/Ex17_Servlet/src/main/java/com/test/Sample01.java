@@ -16,7 +16,9 @@ public class Sample01 extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		// response.getWriter().append("Served at: ").append(request.getContextPath());
+		// out.println("Sample01.doGet() - 서블릿 호출");
+		System.out.println("Sample01.doGet() - 서블릿 호출");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
