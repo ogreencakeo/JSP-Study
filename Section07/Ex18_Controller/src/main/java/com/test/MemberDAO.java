@@ -1,5 +1,24 @@
 package com.test;
 
-public class MemberDAO {
+import java.util.ArrayList;
+import java.util.List;
 
+public class MemberDAO {
+	// ArrayList (데이터베이스 역할)
+	List<MemberVO> memberList = new ArrayList<>();
+	
+	// 입력 : add() => /memberInsert.do
+	public void add (MemberVO m) {
+		memberList.add(m);
+	}
+	
+	// 출력 : listDB() => /memberList.do
+	public List<MemberVO> listDB(){
+		return memberList;
+	}
+	
+	// 사이즈 : getSize()
+	public int getSize() {
+		return memberList.size();
+	}
 }
