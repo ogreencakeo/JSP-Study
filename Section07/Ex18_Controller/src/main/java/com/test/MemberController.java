@@ -1,7 +1,6 @@
 package com.test;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletConfig;
@@ -51,9 +50,32 @@ public class MemberController extends HttpServlet {
 			if(action.equals("/memberList.do")) {
 				// MemberService.list() 메서드 호출
 				List<MemberVO> dataList = meberService.list();
-				System.out.println(dataList); // []
+				
+				// 뷰 페이지 템플릿
+				viewPage += "<!DOCTYPE html>";
+				viewPage += "<html lang=\"ko\">";
+				viewPage += "<head><meta charset=\"UTF-8\"><title>리스트 페이지</title></head>";
+				viewPage += "<body>";
+				viewPage += "<h2>MemberController.doHandle() => /memberList.do 리스트 페이지 호출</h2>";
+				viewPage += "<hr />" + dataList;
+				viewPage += "</body>";
+				viewPage += "</html>";
+				
+				// 뷰 페이지 출력
+				response.getWriter().write( viewPage );
+				
 			}else if(action.equals("/memberInsert.do")) {
-				// System.out.println(memberVO);
+
+				// 뷰 페이지 템플릿
+				viewPage += "<!DOCTYPE html>";
+				viewPage += "<html lang=\"ko\">";
+				viewPage += "<head><meta charset=\"UTF-8\"><title>입력 페이지</title></head>";
+				viewPage += "<body>";
+				viewPage += "<h2>MemberController.doHandle() => /memberInsert.do 리스트 페이지 호출</h2>";
+				viewPage += "<hr />";
+				viewPage += "</body>";
+				viewPage += "</html>";
+				
 				// 회원 한 명 입력
 				memberVO.setId("슈퍼맨");
 				memberVO.setPw("1234");
@@ -61,9 +83,11 @@ public class MemberController extends HttpServlet {
 				memberVO.setEmail("superman@gmail.com");
 				memberVO.setPhone("010-1111-1111");
 				
-				// 브라우저 화면에 출력
-				PrintWriter out = response.getWriter();
-				out.println(memberVO);
+				// 추가 
+				meberService.add(memberVO);
+				
+				// 뷰 페이지 출력
+				response.getWriter().write( viewPage );
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
